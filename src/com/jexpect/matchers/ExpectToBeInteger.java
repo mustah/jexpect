@@ -11,6 +11,13 @@ class ExpectToBeInteger implements ToBeInteger {
   }
 
   @Override
+  public void toBe(int expected) {
+    if (actual != expected) {
+      throw new IllegalArgumentException();
+    }
+  }
+
+  @Override
   public void toBeLessThan(int expected) {
     if (actual >= expected) {
       throw new IllegalArgumentException();
