@@ -12,16 +12,22 @@ class ExpectToBeFloat implements ToBeFloat {
 
   @Override
   public void toBe(float expected) {
-    //To change body of implemented methods use File | Settings | File Templates.
+    if (actual != expected) {
+      throw new IllegalArgumentException();
+    }
   }
 
   @Override
   public void toBeLessThan(float expected) {
-    //To change body of implemented methods use File | Settings | File Templates.
+    if (actual >= expected) {
+      throw new IllegalArgumentException();
+    }
   }
 
   @Override
   public void toBeGreaterThan(float expected) {
-    //To change body of implemented methods use File | Settings | File Templates.
+    if (actual <= expected) {
+      throw new IllegalArgumentException();
+    }
   }
 }
