@@ -1,26 +1,18 @@
 package com.jexpect;
 
-public class Expect {
+import com.jexpect.matchers.ExpectFactory;
 
-  private final boolean b;
+public final class Expect {
 
-  private Expect(final boolean b) {
-    this.b = b;
+  private Expect() {
   }
 
-  public static Expect expect(boolean b) {
-    return new Expect(b);
+  public static ToBeBoolean expect(boolean actual) {
+    return ExpectFactory.newToBoolean(actual);
   }
 
-  public void toBeTrue() {
-    if (!b) {
-      throw new IllegalArgumentException();
-    }
+  public static ToBeInteger expect(int actual) {
+    return ExpectFactory.newToInteger(actual);
   }
 
-  public void toBeFalse() {
-    if (b) {
-      throw new IllegalArgumentException();
-    }
-  }
 }
