@@ -6,9 +6,6 @@ import junit.framework.Assert;
 
 import static com.jexpect.Expect.expect;
 
-/**
- * <br> User: must <br> Date: 2013-09-20
- */
 public class ToBeIntegerTest {
 
   @Test

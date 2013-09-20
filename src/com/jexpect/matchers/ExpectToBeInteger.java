@@ -2,9 +2,6 @@ package com.jexpect.matchers;
 
 import com.jexpect.ToBeInteger;
 
-/**
- * <br> User: must <br> Date: 2013-09-20
- */
 class ExpectToBeInteger implements ToBeInteger {
 
   private final int actual;

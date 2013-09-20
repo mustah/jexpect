@@ -3,9 +3,6 @@ package com.jexpect.matchers;
 import com.jexpect.ToBeBoolean;
 import com.jexpect.ToBeInteger;
 
-/**
- * <br> User: must <br> Date: 2013-09-20
- */
 public final class ExpectFactory {
 
   private ExpectFactory() {
