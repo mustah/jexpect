@@ -7,6 +7,16 @@ import static com.jexpect.Expect.expect;
 public class ToBeBooleanTest {
 
   @Test
+  public void Expect_True_To_Be_Actual() throws Exception {
+    expect(true).toBe(true);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void Expect_True_To_Be_Actual_Fail() throws Exception {
+    expect(true).toBe(false);
+  }
+
+  @Test
   public void Expect_True_To_Be_True_Should_Not_Throw() throws Exception {
     expect(true).toBeTrue();
   }

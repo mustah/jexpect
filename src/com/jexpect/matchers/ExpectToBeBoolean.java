@@ -23,4 +23,9 @@ class ExpectToBeBoolean implements ToBeBoolean {
       throw new IllegalArgumentException();
     }
   }
+
+  @Override
+  public void toBe(boolean b) {
+
+  }
 }
