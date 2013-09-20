@@ -6,6 +6,8 @@ import static com.jexpect.Expect.expect;
 
 public class ToBeStringTest {
 
+  public static final String NULL_STRING = null;
+
   @Test
   public void To_Be_String() throws Exception {
     expect("must").toBe("must");
@@ -23,20 +25,17 @@ public class ToBeStringTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_String_With_Actual_Null() throws Exception {
-    String s = null;
-    expect(s).toBe("mattias");
+    expect(NULL_STRING).toBe("mattias");
   }
 
   @Test
   public void To_Be_Null() throws Exception {
-    String s = null;
-    expect(s).toBeNull();
+    expect(NULL_STRING).toBeNull();
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_Null_Fail() throws Exception {
-    String s = "";
-    expect(s).toBeNull();
+    expect("").toBeNull();
   }
 
   @Test
