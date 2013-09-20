@@ -14,7 +14,7 @@ class ExpectToBeString implements ToBeString {
   public void toBe(String expected) {
     if (actual == null && expected != null) {
       throw new IllegalArgumentException();
-    } else if (!actual.equals(expected)) {
+    } else if (actual != null && !actual.equals(expected)) {
       throw new IllegalArgumentException();
     }
   }
