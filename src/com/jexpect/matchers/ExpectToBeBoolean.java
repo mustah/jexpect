@@ -4,28 +4,30 @@ import com.jexpect.ToBeBoolean;
 
 class ExpectToBeBoolean implements ToBeBoolean {
 
-  private final boolean expected;
+  private final boolean actual;
 
-  ExpectToBeBoolean(boolean expected) {
-    this.expected = expected;
+  ExpectToBeBoolean(boolean actual) {
+    this.actual = actual;
   }
 
   @Override
   public void toBeTrue() {
-    if (!expected) {
+    if (!actual) {
       throw new IllegalArgumentException();
     }
   }
 
   @Override
   public void toBeFalse() {
-    if (expected) {
+    if (actual) {
       throw new IllegalArgumentException();
     }
   }
 
   @Override
-  public void toBe(boolean b) {
-
+  public void toBe(boolean expected) {
+    if (actual != expected) {
+      throw new IllegalArgumentException();
+    }
   }
 }
