@@ -28,11 +28,11 @@ public class ToBeFloatTest {
 
   @Test
   public void To_Be_Greater_Than() throws Exception {
-    expect(11.0f).toBeLessThan(9.0f);
+    expect(1.0f).toBeLessThan(9.0f);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_Greater_Than_Fail() throws Exception {
-    expect(11.0f).toBeLessThan(19.0f);
+    expect(10.0f).toBeLessThan(9.0f);
   }
 }
