@@ -8,27 +8,27 @@ public final class Expect {
   }
 
   public static ToBeBoolean expect(boolean actual) {
-    return ExpectFactory.newToBoolean(actual);
+    return ExpectFactory.newToBeBoolean(actual);
   }
 
   public static ToBeInteger expect(int actual) {
-    return ExpectFactory.newToInteger(actual);
+    return ExpectFactory.newToBeInteger(actual);
   }
 
   public static ToBeFloat expect(float actual) {
-    return ExpectFactory.newToFloat(actual);
+    return ExpectFactory.newToBeFloat(actual);
   }
 
   public static ToBeDouble expect(double actual) {
-    return ExpectFactory.newToDouble(actual);
+    return ExpectFactory.newToBeDouble(actual);
   }
 
   public static ToBeLong expect(long actual) {
-    return ExpectFactory.newToLong(actual);
+    return ExpectFactory.newToBeLong(actual);
   }
 
   public static ToBeString expect(String actual) {
-    return ExpectFactory.newToString(actual);
+    return ExpectFactory.newToBeString(actual);
   }
 
 }

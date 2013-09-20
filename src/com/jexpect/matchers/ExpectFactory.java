@@ -12,27 +12,27 @@ public final class ExpectFactory {
   private ExpectFactory() {
   }
 
-  public static ToBeBoolean newToBoolean(boolean actual) {
+  public static ToBeBoolean newToBeBoolean(boolean actual) {
     return new ExpectToBeBoolean(actual);
   }
 
-  public static ToBeInteger newToInteger(int actual) {
+  public static ToBeInteger newToBeInteger(int actual) {
     return new ExpectToBeInteger(actual);
   }
 
-  public static ToBeString newToString(String actual) {
+  public static ToBeString newToBeString(String actual) {
     return new ExpectToBeString(actual);
   }
 
-  public static ToBeFloat newToFloat(float actual) {
+  public static ToBeFloat newToBeFloat(float actual) {
     return new ExpectToBeFloat(actual);
   }
 
-  public static ToBeDouble newToDouble(double actual) {
+  public static ToBeDouble newToBeDouble(double actual) {
     return new ExpectToBeDouble(actual);
   }
 
-  public static ToBeLong newToLong(long actual) {
+  public static ToBeLong newToBeLong(long actual) {
     return new ExpectToBeLong(actual);
   }
 }
