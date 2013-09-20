@@ -1,6 +1,5 @@
 package com.jexpect;
 
-
 import org.junit.Test;
 
 import junit.framework.Assert;
