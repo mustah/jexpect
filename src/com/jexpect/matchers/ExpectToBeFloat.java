@@ -2,20 +2,26 @@ package com.jexpect.matchers;
 
 import com.jexpect.ToBeFloat;
 
-public class ExpectToBeFloat implements ToBeFloat {
+class ExpectToBeFloat implements ToBeFloat {
 
-  @Override
-  public void toBe(int expected) {
+  private final float actual;
 
+  ExpectToBeFloat(float actual) {
+    this.actual = actual;
   }
 
   @Override
-  public void toBeLessThan(int expected) {
-
+  public void toBe(float expected) {
+    //To change body of implemented methods use File | Settings | File Templates.
   }
 
   @Override
-  public void toBeGreaterThan(int expected) {
+  public void toBeLessThan(float expected) {
+    //To change body of implemented methods use File | Settings | File Templates.
+  }
 
+  @Override
+  public void toBeGreaterThan(float expected) {
+    //To change body of implemented methods use File | Settings | File Templates.
   }
 }
