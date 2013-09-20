@@ -2,11 +2,11 @@ package com.jexpect;
 
 public interface ToBeString {
 
-    void toBe(String expected);
+  void toBe(String expected);
 
-    void toBeNull();
+  void toBeNull();
 
-    void toBeEmpty();
+  void toBeEmpty();
 
-    void toBeNotEmpty();
+  void toBeNotEmpty();
 }
