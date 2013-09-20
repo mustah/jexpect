@@ -2,19 +2,13 @@ package com.jexpect;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
-
 import static com.jexpect.Expect.expect;
 
 public class ToBeBooleanTest {
 
   @Test
-  public void Expect_True_To_Be_True() throws Exception {
-    try {
-      expect(true).toBeTrue();
-    } catch (Exception e) {
-      Assert.fail();
-    }
+  public void Expect_True_To_Be_True_Should_Not_Throw() throws Exception {
+    expect(true).toBeTrue();
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -28,11 +22,7 @@ public class ToBeBooleanTest {
   }
 
   @Test
-  public void Expect_False_To_Be_False() throws Exception {
-    try {
-      expect(false).toBeFalse();
-    } catch (Exception e) {
-      Assert.fail();
-    }
+  public void Expect_False_To_Be_False_Should_Not_Throw() throws Exception {
+    expect(false).toBeFalse();
   }
 }
