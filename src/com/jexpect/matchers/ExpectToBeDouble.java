@@ -2,7 +2,7 @@ package com.jexpect.matchers;
 
 import com.jexpect.ToBeDouble;
 
-public class ExpectToBeDouble implements ToBeDouble {
+class ExpectToBeDouble implements ToBeDouble {
 
   private final double actual;
 

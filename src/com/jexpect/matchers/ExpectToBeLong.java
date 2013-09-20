@@ -2,11 +2,11 @@ package com.jexpect.matchers;
 
 import com.jexpect.ToBeLong;
 
-public class ExpectToBeLong implements ToBeLong {
+class ExpectToBeLong implements ToBeLong {
 
   private final long actual;
 
-  public ExpectToBeLong(long actual) {
+  ExpectToBeLong(long actual) {
     this.actual = actual;
   }
 
