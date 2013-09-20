@@ -1,8 +1,10 @@
 package com.jexpect.matchers;
 
 import com.jexpect.ToBeBoolean;
+import com.jexpect.ToBeDouble;
 import com.jexpect.ToBeFloat;
 import com.jexpect.ToBeInteger;
+import com.jexpect.ToBeLong;
 import com.jexpect.ToBeString;
 
 public final class ExpectFactory {
@@ -24,5 +26,13 @@ public final class ExpectFactory {
 
   public static ToBeFloat newToFloat(float actual) {
     return new ExpectToBeFloat(actual);
+  }
+
+  public static ToBeDouble newToDouble(double actual) {
+    return new ExpectToBeDouble(actual);
+  }
+
+  public static ToBeLong newToLong(long actual) {
+    return new ExpectToBeLong(actual);
   }
 }

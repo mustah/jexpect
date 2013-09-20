@@ -19,6 +19,14 @@ public final class Expect {
     return ExpectFactory.newToFloat(actual);
   }
 
+  public static ToBeDouble expect(double actual) {
+    return ExpectFactory.newToDouble(actual);
+  }
+
+  public static ToBeLong expect(long actual) {
+    return ExpectFactory.newToLong(actual);
+  }
+
   public static ToBeString expect(String actual) {
     return ExpectFactory.newToString(actual);
   }

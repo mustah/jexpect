@@ -23,7 +23,8 @@ public class ToBeStringTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_String_With_Actual_Null() throws Exception {
-    expect(null).toBe("mattias");
+    String s = null;
+    expect(s).toBe("mattias");
   }
 
   @Test
