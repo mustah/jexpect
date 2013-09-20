@@ -17,22 +17,14 @@ public class ToBeBooleanTest {
     }
   }
 
-  @Test
+  @Test(expected = IllegalArgumentException.class)
   public void Expect_False_To_Be_True() throws Exception {
-    try {
-      expect(false).toBeTrue();
-      Assert.fail();
-    } catch (Exception e) {
-    }
+    expect(false).toBeTrue();
   }
 
-  @Test
+  @Test(expected = IllegalArgumentException.class)
   public void Expect_True_To_Be_False() throws Exception {
-    try {
-      expect(true).toBeFalse();
-      Assert.fail();
-    } catch (Exception e) {
-    }
+    expect(true).toBeFalse();
   }
 
   @Test
