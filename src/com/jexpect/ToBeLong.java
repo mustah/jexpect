@@ -2,10 +2,10 @@ package com.jexpect;
 
 public interface ToBeLong {
 
-  void toBe(long expected);
+  void toBe(Long expected);
 
-  void toBeLessThan(long expected);
+  void toBeLessThan(Long expected);
 
-  void toBeGreaterThan(long expected);
+  void toBeGreaterThan(Long expected);
 
 }
