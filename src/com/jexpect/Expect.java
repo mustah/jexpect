@@ -1,26 +1,39 @@
 package com.jexpect;
 
-public class Expect {
+import com.jexpect.matchers.ExpectToBeBoolean;
+import com.jexpect.matchers.ExpectToBeDouble;
+import com.jexpect.matchers.ExpectToBeFloat;
+import com.jexpect.matchers.ExpectToBeInteger;
+import com.jexpect.matchers.ExpectToBeLong;
+import com.jexpect.matchers.ExpectToBeString;
 
-  private final boolean b;
+public final class Expect {
 
-  private Expect(final boolean b) {
-    this.b = b;
+  private Expect() {
   }
 
-  public static Expect expect(boolean b) {
-    return new Expect(b);
+  public static ToBeString expect(String actual) {
+    return new ExpectToBeString(actual);
   }
 
-  public void toBeTrue() {
-    if (!b) {
-      throw new IllegalArgumentException();
-    }
+  public static ToBeBoolean expect(boolean actual) {
+    return new ExpectToBeBoolean(actual);
   }
 
-  public void toBeFalse() {
-    if (b) {
-      throw new IllegalArgumentException();
-    }
+  public static ToBeNumber<Integer> expect(int actual) {
+    return new ExpectToBeInteger(actual);
   }
+
+  public static ToBeNumber<Float> expect(float actual) {
+    return new ExpectToBeFloat(actual);
+  }
+
+  public static ToBeNumber<Double> expect(double actual) {
+    return new ExpectToBeDouble(actual);
+  }
+
+  public static ToBeNumber<Long> expect(long actual) {
+    return new ExpectToBeLong(actual);
+  }
+
 }
