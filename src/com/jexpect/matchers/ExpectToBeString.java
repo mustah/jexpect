@@ -2,7 +2,7 @@ package com.jexpect.matchers;
 
 import com.jexpect.ToBeString;
 
-class ExpectToBeString implements ToBeString {
+public class ExpectToBeString implements ToBeString {
 
   private final String actual;
 

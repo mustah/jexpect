@@ -1,8 +1,8 @@
 package com.jexpect.matchers;
 
-class ExpectToBeDouble extends ExpectToBeNumber<Double> {
+public class ExpectToBeDouble extends ExpectToBeNumber<Double> {
 
-  ExpectToBeDouble(Double actual) {
+  public ExpectToBeDouble(Double actual) {
     super(actual);
   }
 

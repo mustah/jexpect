@@ -1,8 +1,8 @@
 package com.jexpect.matchers;
 
-class ExpectToBeInteger extends ExpectToBeNumber<Integer> {
+public class ExpectToBeInteger extends ExpectToBeNumber<Integer> {
 
-  ExpectToBeInteger(Integer actual) {
+  public ExpectToBeInteger(Integer actual) {
     super(actual);
   }
 

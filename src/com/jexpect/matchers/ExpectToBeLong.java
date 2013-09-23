@@ -1,8 +1,8 @@
 package com.jexpect.matchers;
 
-class ExpectToBeLong extends ExpectToBeNumber<Long> {
+public class ExpectToBeLong extends ExpectToBeNumber<Long> {
 
-  ExpectToBeLong(Long actual) {
+  public ExpectToBeLong(Long actual) {
     super(actual);
   }
 

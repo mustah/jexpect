@@ -1,8 +1,8 @@
 package com.jexpect.matchers;
 
-class ExpectToBeFloat extends ExpectToBeNumber<Float> {
+public class ExpectToBeFloat extends ExpectToBeNumber<Float> {
 
-  ExpectToBeFloat(Float actual) {
+  public ExpectToBeFloat(Float actual) {
     super(actual);
   }
 
