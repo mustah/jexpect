@@ -32,7 +32,7 @@ public final class ExpectFactory {
     return new ExpectToBeDouble(actual);
   }
 
-  public static ToBeLong newToBeLong(long actual) {
+  public static ToBeLong newToBeLong(Long actual) {
     return new ExpectToBeLong(actual);
   }
 }

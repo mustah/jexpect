@@ -28,11 +28,11 @@ public class ToBeDoubleTest {
 
   @Test
   public void To_Be_Greater_Than() throws Exception {
-    expect(1.0d).toBeLessThan(9.0d);
+    expect(11.0d).toBeGreaterThan(9.0d);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_Greater_Than_Fail() throws Exception {
-    expect(10.0d).toBeLessThan(9.0d);
+    expect(1.0d).toBeGreaterThan(9.0d);
   }
 }

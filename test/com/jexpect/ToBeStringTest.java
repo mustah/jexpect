@@ -7,6 +7,7 @@ import static com.jexpect.Expect.expect;
 public class ToBeStringTest {
 
   public static final String NULL_STRING = null;
+  public static final String EMPTY_STRING = "";
 
   @Test
   public void To_Be_String() throws Exception {
@@ -35,12 +36,12 @@ public class ToBeStringTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_Null_Fail() throws Exception {
-    expect("").toBeNull();
+    expect(EMPTY_STRING).toBeNull();
   }
 
   @Test
   public void To_Be_Empty() throws Exception {
-    expect("").toBeEmpty();
+    expect(EMPTY_STRING).toBeEmpty();
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -55,6 +56,6 @@ public class ToBeStringTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_Not_Empty_Fail() throws Exception {
-    expect("").toBeNotEmpty();
+    expect(EMPTY_STRING).toBeNotEmpty();
   }
 }

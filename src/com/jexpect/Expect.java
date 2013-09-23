@@ -23,7 +23,7 @@ public final class Expect {
     return ExpectFactory.newToBeDouble(actual);
   }
 
-  public static ToBeLong expect(long actual) {
+  public static ToBeLong expect(Long actual) {
     return ExpectFactory.newToBeLong(actual);
   }
 
