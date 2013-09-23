@@ -1,8 +1,8 @@
 package com.jexpect;
 
-public interface ToBeNumber<NUMBER> extends ToBe<NUMBER> {
+public interface ToBeNumber<N extends Number> extends ToBe<N> {
 
-  void toBeLessThan(NUMBER expected);
+  void toBeLessThan(N expected);
 
-  void toBeGreaterThan(NUMBER expected);
+  void toBeGreaterThan(N expected);
 }

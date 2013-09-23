@@ -1,20 +1,9 @@
 package com.jexpect.matchers;
 
-import com.jexpect.ToBeNumber;
-
-class ExpectToBeInteger implements ToBeNumber<Integer> {
-
-  private final Integer actual;
+class ExpectToBeInteger extends ExpectToBeNumber<Integer> {
 
   ExpectToBeInteger(Integer actual) {
-    this.actual = actual;
-  }
-
-  @Override
-  public void toBe(Integer expected) {
-    if (cannotBeCompared(expected) || !actual.equals(expected)) {
-      throw new IllegalArgumentException();
-    }
+    super(actual);
   }
 
   @Override
@@ -31,7 +20,4 @@ class ExpectToBeInteger implements ToBeNumber<Integer> {
     }
   }
 
-  private boolean cannotBeCompared(Integer expected) {
-    return actual == null || expected == null;
-  }
 }

@@ -1,20 +1,9 @@
 package com.jexpect.matchers;
 
-import com.jexpect.ToBeNumber;
-
-class ExpectToBeLong implements ToBeNumber<Long> {
-
-  private final Long actual;
+class ExpectToBeLong extends ExpectToBeNumber<Long> {
 
   ExpectToBeLong(Long actual) {
-    this.actual = actual;
-  }
-
-  @Override
-  public void toBe(Long expected) {
-    if (cannotBeCompared(expected) || !actual.equals(expected)) {
-      throw new IllegalArgumentException();
-    }
+    super(actual);
   }
 
   @Override
@@ -31,7 +20,4 @@ class ExpectToBeLong implements ToBeNumber<Long> {
     }
   }
 
-  private boolean cannotBeCompared(Long expected) {
-    return actual == null || expected == null;
-  }
 }

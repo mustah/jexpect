@@ -1,20 +1,9 @@
 package com.jexpect.matchers;
 
-import com.jexpect.ToBeNumber;
-
-class ExpectToBeFloat implements ToBeNumber<Float> {
-
-  private final Float actual;
+class ExpectToBeFloat extends ExpectToBeNumber<Float> {
 
   ExpectToBeFloat(Float actual) {
-    this.actual = actual;
-  }
-
-  @Override
-  public void toBe(Float expected) {
-    if (cannotBeCompared(expected) || !actual.equals(expected)) {
-      throw new IllegalArgumentException();
-    }
+    super(actual);
   }
 
   @Override
@@ -31,7 +20,4 @@ class ExpectToBeFloat implements ToBeNumber<Float> {
     }
   }
 
-  private boolean cannotBeCompared(Float expected) {
-    return actual == null || expected == null;
-  }
 }
