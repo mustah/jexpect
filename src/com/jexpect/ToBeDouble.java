@@ -1,8 +1,6 @@
 package com.jexpect;
 
-public interface ToBeDouble {
-
-  void toBe(double expected);
+public interface ToBeDouble extends ToBe<Double> {
 
   void toBeLessThan(double expected);
 

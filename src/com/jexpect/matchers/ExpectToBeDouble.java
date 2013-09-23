@@ -11,8 +11,8 @@ class ExpectToBeDouble implements ToBeDouble {
   }
 
   @Override
-  public void toBe(double expected) {
-    if (actual != expected) {
+  public void toBe(Double expected) {
+    if (expected == null || actual != expected) {
       throw new IllegalArgumentException();
     }
   }

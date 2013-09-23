@@ -16,6 +16,11 @@ public class ToBeDoubleTest {
     expect(10.0d).toBe(9.0d);
   }
 
+  @Test(expected = IllegalArgumentException.class)
+  public void To_Be_Actual_When_Actual_Is_Null_Fail() throws Exception {
+    expect(10.0d).toBe(null);
+  }
+
   @Test
   public void To_Be_Less_Than() throws Exception {
     expect(1.0d).toBeLessThan(9.0d);
