@@ -8,12 +8,12 @@ public class ToBeFloatTest {
 
   @Test
   public void To_Be_Actual() throws Exception {
-    expect(Float.valueOf(10)).toBe(10.0f);
+    expect((float) 10).toBe(10.0f);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_Actual_Fail() throws Exception {
-    expect(Float.valueOf(12)).toBe(9f);
+    expect((float) 12).toBe(9f);
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -23,21 +23,21 @@ public class ToBeFloatTest {
 
   @Test
   public void To_Be_Less_Than() throws Exception {
-    expect(Float.valueOf(1)).toBeLessThan(9.0f);
+    expect((float) 1).toBeLessThan(9.0f);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_Less_Than_Fail() throws Exception {
-    expect(Float.valueOf(11)).toBeLessThan(9.0f);
+    expect((float) 11).toBeLessThan(9.0f);
   }
 
   @Test
   public void To_Be_Greater_Than() throws Exception {
-    expect(Float.valueOf(10)).toBeGreaterThan(9.0f);
+    expect((float) 10).toBeGreaterThan(9.0f);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_Greater_Than_Fail() throws Exception {
-    expect(Float.valueOf(1)).toBeGreaterThan(9.0f);
+    expect((float) 1).toBeGreaterThan(9.0f);
   }
 }

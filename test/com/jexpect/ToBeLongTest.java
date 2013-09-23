@@ -15,31 +15,31 @@ public class ToBeLongTest {
 
   @Test
   public void To_Be_Actual() throws Exception {
-    expect(Long.valueOf(10)).toBe(10L);
+    expect((long) 10).toBe(10L);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_Actual_Fail() throws Exception {
-    expect(Long.valueOf(10)).toBe(9L);
+    expect((long) 10).toBe(9L);
   }
 
   @Test
   public void To_Be_Less_Than() throws Exception {
-    expect(Long.valueOf(1)).toBeLessThan(9L);
+    expect((long) 1).toBeLessThan(9L);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_Less_Than_Fail() throws Exception {
-    expect(Long.valueOf(11)).toBeLessThan(9L);
+    expect((long) 11).toBeLessThan(9L);
   }
 
   @Test
   public void To_Be_Greater_Than() throws Exception {
-    expect(Long.valueOf(10)).toBeGreaterThan(9L);
+    expect((long) 10).toBeGreaterThan(9L);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_Greater_Than_Fail() throws Exception {
-    expect(Long.valueOf(1)).toBeGreaterThan(9L);
+    expect((long) 1).toBeGreaterThan(9L);
   }
 }
