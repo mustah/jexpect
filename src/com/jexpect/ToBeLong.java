@@ -1,8 +1,6 @@
 package com.jexpect;
 
-public interface ToBeLong {
-
-  void toBe(Long expected);
+public interface ToBeLong extends ToBe<Long> {
 
   void toBeLessThan(Long expected);
 
