@@ -1,8 +1,8 @@
 package com.jexpect.matchers;
 
-import com.jexpect.ToBeFloat;
+import com.jexpect.ToBeNumber;
 
-class ExpectToBeFloat implements ToBeFloat {
+class ExpectToBeFloat implements ToBeNumber<Float> {
 
   private final Float actual;
 

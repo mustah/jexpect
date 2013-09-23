@@ -1,8 +1,8 @@
 package com.jexpect.matchers;
 
-import com.jexpect.ToBeInteger;
+import com.jexpect.ToBeNumber;
 
-class ExpectToBeInteger implements ToBeInteger {
+class ExpectToBeInteger implements ToBeNumber<Integer> {
 
   private final Integer actual;
 

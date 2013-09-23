@@ -1,8 +1,8 @@
 package com.jexpect.matchers;
 
-import com.jexpect.ToBeDouble;
+import com.jexpect.ToBeNumber;
 
-class ExpectToBeDouble implements ToBeDouble {
+class ExpectToBeDouble implements ToBeNumber<Double> {
 
   private final Double actual;
 
@@ -32,7 +32,7 @@ class ExpectToBeDouble implements ToBeDouble {
   }
 
   private boolean cannotBeCompared(Double expected) {
-    return expected == null || actual == null;
+    return actual == null || expected == null;
   }
 
 }

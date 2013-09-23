@@ -1,8 +1,8 @@
 package com.jexpect.matchers;
 
-import com.jexpect.ToBeLong;
+import com.jexpect.ToBeNumber;
 
-class ExpectToBeLong implements ToBeLong {
+class ExpectToBeLong implements ToBeNumber<Long> {
 
   private final Long actual;
 
