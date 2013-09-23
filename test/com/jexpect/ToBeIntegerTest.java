@@ -35,4 +35,14 @@ public class ToBeIntegerTest {
   public void Expect_Number_To_Be_Greater_Than_Should_Throw() throws Exception {
     expect(10).toBeGreaterThan(11);
   }
+
+  @Test
+  public void Expect_Number_To_Be_Same() throws Exception {
+    expect(10).toBe(10);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void Expect_Number_To_Be_Same_Should_Fail_When_Actual_Is_Null() throws Exception {
+    expect((Integer) null).toBe(10);
+  }
 }

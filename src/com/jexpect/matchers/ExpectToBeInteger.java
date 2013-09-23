@@ -4,30 +4,34 @@ import com.jexpect.ToBeInteger;
 
 class ExpectToBeInteger implements ToBeInteger {
 
-  private final int actual;
+  private final Integer actual;
 
-  ExpectToBeInteger(int actual) {
+  ExpectToBeInteger(Integer actual) {
     this.actual = actual;
   }
 
   @Override
-  public void toBe(int expected) {
-    if (actual != expected) {
+  public void toBe(Integer expected) {
+    if (cannotBeCompared(expected) || !actual.equals(expected)) {
       throw new IllegalArgumentException();
     }
   }
 
   @Override
-  public void toBeLessThan(int expected) {
-    if (actual >= expected) {
+  public void toBeLessThan(Integer expected) {
+    if (cannotBeCompared(expected) || actual >= expected) {
       throw new IllegalArgumentException();
     }
   }
 
   @Override
-  public void toBeGreaterThan(int expected) {
-    if (actual <= expected) {
+  public void toBeGreaterThan(Integer expected) {
+    if (cannotBeCompared(expected) || actual <= expected) {
       throw new IllegalArgumentException();
     }
+  }
+
+  private boolean cannotBeCompared(Integer expected) {
+    return actual == null || expected == null;
   }
 }

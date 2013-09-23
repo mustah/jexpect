@@ -11,7 +11,7 @@ public final class Expect {
     return ExpectFactory.newToBeBoolean(actual);
   }
 
-  public static ToBeInteger expect(int actual) {
+  public static ToBeInteger expect(Integer actual) {
     return ExpectFactory.newToBeInteger(actual);
   }
 

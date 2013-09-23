@@ -1,10 +1,8 @@
 package com.jexpect;
 
-public interface ToBeInteger {
+public interface ToBeInteger extends ToBe<Integer> {
 
-  void toBe(int expected);
+  void toBeLessThan(Integer expected);
 
-  void toBeLessThan(int expected);
-
-  void toBeGreaterThan(int expected);
+  void toBeGreaterThan(Integer expected);
 }

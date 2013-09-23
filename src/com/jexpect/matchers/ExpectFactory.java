@@ -16,7 +16,7 @@ public final class ExpectFactory {
     return new ExpectToBeBoolean(actual);
   }
 
-  public static ToBeInteger newToBeInteger(int actual) {
+  public static ToBeInteger newToBeInteger(Integer actual) {
     return new ExpectToBeInteger(actual);
   }
 
