@@ -12,7 +12,7 @@ public class ExpectToBeString implements ToBeString {
 
   @Override
   public void toBe(String expected) {
-    if (cannotBeCompared(expected) || !actual.equals(expected)) {
+    if (anyIsNull(expected) || !actual.equals(expected)) {
       throw new IllegalArgumentException();
     }
   }
@@ -38,7 +38,7 @@ public class ExpectToBeString implements ToBeString {
     }
   }
 
-  private boolean cannotBeCompared(String expected) {
+  private boolean anyIsNull(String expected) {
     return actual == null || expected == null;
   }
 }

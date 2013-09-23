@@ -12,12 +12,12 @@ abstract class ExpectToBeNumber<N extends Number> implements ToBeNumber<N> {
 
   @Override
   public void toBe(N expected) {
-    if (cannotBeCompared(expected) || !actual.equals(expected)) {
+    if (anyIsNull(expected) || !actual.equals(expected)) {
       throw new IllegalArgumentException();
     }
   }
 
-  protected boolean cannotBeCompared(N expected) {
+  protected boolean anyIsNull(N expected) {
     return actual == null || expected == null;
   }
 }

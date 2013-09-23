@@ -8,14 +8,14 @@ public class ExpectToBeLong extends ExpectToBeNumber<Long> {
 
   @Override
   public void toBeLessThan(Long expected) {
-    if (cannotBeCompared(expected) || actual >= expected) {
+    if (anyIsNull(expected) || actual >= expected) {
       throw new IllegalArgumentException();
     }
   }
 
   @Override
   public void toBeGreaterThan(Long expected) {
-    if (cannotBeCompared(expected) || actual <= expected) {
+    if (anyIsNull(expected) || actual <= expected) {
       throw new IllegalArgumentException();
     }
   }

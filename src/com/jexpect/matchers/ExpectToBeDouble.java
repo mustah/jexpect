@@ -8,14 +8,14 @@ public class ExpectToBeDouble extends ExpectToBeNumber<Double> {
 
   @Override
   public void toBeLessThan(Double expected) {
-    if (cannotBeCompared(expected) || actual >= expected) {
+    if (anyIsNull(expected) || actual >= expected) {
       throw new IllegalArgumentException();
     }
   }
 
   @Override
   public void toBeGreaterThan(Double expected) {
-    if (cannotBeCompared(expected) || actual <= expected) {
+    if (anyIsNull(expected) || actual <= expected) {
       throw new IllegalArgumentException();
     }
   }

@@ -8,14 +8,14 @@ public class ExpectToBeFloat extends ExpectToBeNumber<Float> {
 
   @Override
   public void toBeLessThan(Float expected) {
-    if (cannotBeCompared(expected) || actual >= expected) {
+    if (anyIsNull(expected) || actual >= expected) {
       throw new IllegalArgumentException();
     }
   }
 
   @Override
   public void toBeGreaterThan(Float expected) {
-    if (cannotBeCompared(expected) || actual <= expected) {
+    if (anyIsNull(expected) || actual <= expected) {
       throw new IllegalArgumentException();
     }
   }
