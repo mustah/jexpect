@@ -6,13 +6,6 @@ import static com.jexpect.Expect.expect;
 
 public class ToBeLongTest {
 
-  private static Long NULL_VALUE = null;
-
-  @Test(expected = IllegalArgumentException.class)
-  public void To_Be_Actual_Is_Null() throws Exception {
-    expect(NULL_VALUE).toBe(10L);
-  }
-
   @Test
   public void To_Be_Actual() throws Exception {
     expect((long) 10).toBe(10L);

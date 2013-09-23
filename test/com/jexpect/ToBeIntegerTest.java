@@ -41,8 +41,4 @@ public class ToBeIntegerTest {
     expect(10).toBe(10);
   }
 
-  @Test(expected = IllegalArgumentException.class)
-  public void Expect_Number_To_Be_Same_Should_Fail_When_Actual_Is_Null() throws Exception {
-    expect((Integer) null).toBe(10);
-  }
 }
