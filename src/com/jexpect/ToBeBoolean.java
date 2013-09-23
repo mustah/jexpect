@@ -1,8 +1,6 @@
 package com.jexpect;
 
-public interface ToBeBoolean {
-
-  void toBe(boolean expected);
+public interface ToBeBoolean extends ToBe<Boolean> {
 
   void toBeTrue();
 

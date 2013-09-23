@@ -25,8 +25,8 @@ class ExpectToBeBoolean implements ToBeBoolean {
   }
 
   @Override
-  public void toBe(boolean expected) {
-    if (actual != expected) {
+  public void toBe(Boolean expected) {
+    if (expected == null || actual != expected) {
       throw new IllegalArgumentException();
     }
   }

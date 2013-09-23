@@ -16,6 +16,11 @@ public class ToBeBooleanTest {
     expect(true).toBe(false);
   }
 
+  @Test(expected = IllegalArgumentException.class)
+  public void Expect_True_To_Be_Actual_Should_Fail_When_Actual_Is_Null() throws Exception {
+    expect(true).toBe(null);
+  }
+
   @Test
   public void Expect_True_To_Be_True_Should_Not_Throw() throws Exception {
     expect(true).toBeTrue();
