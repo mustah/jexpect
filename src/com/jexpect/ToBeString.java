@@ -1,8 +1,6 @@
 package com.jexpect;
 
-public interface ToBeString {
-
-  void toBe(String expected);
+public interface ToBeString extends ToBe<String> {
 
   void toBeNull();
 
