@@ -1,11 +1,9 @@
 package com.jexpect;
 
-public interface ToBeFloat {
+public interface ToBeFloat extends ToBe<Float> {
 
-  void toBe(float expected);
+  void toBeLessThan(Float expected);
 
-  void toBeLessThan(float expected);
-
-  void toBeGreaterThan(float expected);
+  void toBeGreaterThan(Float expected);
 
 }

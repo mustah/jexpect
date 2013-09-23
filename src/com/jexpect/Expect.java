@@ -15,11 +15,11 @@ public final class Expect {
     return ExpectFactory.newToBeInteger(actual);
   }
 
-  public static ToBeFloat expect(float actual) {
+  public static ToBeFloat expect(Float actual) {
     return ExpectFactory.newToBeFloat(actual);
   }
 
-  public static ToBeDouble expect(double actual) {
+  public static ToBeDouble expect(Double actual) {
     return ExpectFactory.newToBeDouble(actual);
   }
 

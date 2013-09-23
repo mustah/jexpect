@@ -4,30 +4,34 @@ import com.jexpect.ToBeFloat;
 
 class ExpectToBeFloat implements ToBeFloat {
 
-  private final float actual;
+  private final Float actual;
 
-  ExpectToBeFloat(float actual) {
+  ExpectToBeFloat(Float actual) {
     this.actual = actual;
   }
 
   @Override
-  public void toBe(float expected) {
-    if (actual != expected) {
+  public void toBe(Float expected) {
+    if (cannotBeCompared(expected) || !actual.equals(expected)) {
       throw new IllegalArgumentException();
     }
   }
 
   @Override
-  public void toBeLessThan(float expected) {
-    if (actual >= expected) {
+  public void toBeLessThan(Float expected) {
+    if (cannotBeCompared(expected) || actual >= expected) {
       throw new IllegalArgumentException();
     }
   }
 
   @Override
-  public void toBeGreaterThan(float expected) {
-    if (actual <= expected) {
+  public void toBeGreaterThan(Float expected) {
+    if (cannotBeCompared(expected) || actual <= expected) {
       throw new IllegalArgumentException();
     }
+  }
+
+  private boolean cannotBeCompared(Float expected) {
+    return actual == null || expected == null;
   }
 }

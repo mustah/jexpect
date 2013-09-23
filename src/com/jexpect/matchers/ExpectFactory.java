@@ -24,11 +24,11 @@ public final class ExpectFactory {
     return new ExpectToBeString(actual);
   }
 
-  public static ToBeFloat newToBeFloat(float actual) {
+  public static ToBeFloat newToBeFloat(Float actual) {
     return new ExpectToBeFloat(actual);
   }
 
-  public static ToBeDouble newToBeDouble(double actual) {
+  public static ToBeDouble newToBeDouble(Double actual) {
     return new ExpectToBeDouble(actual);
   }
 

@@ -12,28 +12,26 @@ class ExpectToBeLong implements ToBeLong {
 
   @Override
   public void toBe(Long expected) {
-    if (actual == null && expected != null) {
-      throw new IllegalArgumentException();
-    } else if (actual != null && !actual.equals(expected)) {
+    if (cannotBeCompared(expected) || !actual.equals(expected)) {
       throw new IllegalArgumentException();
     }
   }
 
   @Override
   public void toBeLessThan(Long expected) {
-    if (actual == null && expected != null) {
-      throw new IllegalArgumentException();
-    } else if (actual != null && actual >= expected) {
+    if (cannotBeCompared(expected) || actual >= expected) {
       throw new IllegalArgumentException();
     }
   }
 
   @Override
   public void toBeGreaterThan(Long expected) {
-    if (actual == null && expected != null) {
-      throw new IllegalArgumentException();
-    } else if (actual != null && actual <= expected) {
+    if (cannotBeCompared(expected) || actual <= expected) {
       throw new IllegalArgumentException();
     }
+  }
+
+  private boolean cannotBeCompared(Long expected) {
+    return actual == null || expected == null;
   }
 }
