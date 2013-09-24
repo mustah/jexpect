@@ -22,7 +22,7 @@ public class ToBeIntegerTest {
   }
 
   @Test
-  public void Expect_Number_To_Be_Greater_Than_Should_Not_Throw() throws Exception {
+  public void Expect_Number_To_Be_Greater_Than() throws Exception {
     expect(12).toBeGreaterThan(11);
   }
 
