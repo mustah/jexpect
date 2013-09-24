@@ -12,7 +12,7 @@ public class ExpectToBeString implements ToBeString {
 
   @Override
   public void toBe(String expected) {
-    if (anyIsNull(expected) || !actual.equals(expected)) {
+    if (actual == null || !actual.equals(expected)) {
       throw new IllegalArgumentException();
     }
   }
@@ -32,13 +32,42 @@ public class ExpectToBeString implements ToBeString {
   }
 
   @Override
-  public void toBeNotEmpty() {
-    if ("".equals(actual)) {
-      throw new IllegalArgumentException();
-    }
+  public ToBeString not() {
+    return new ExpectToBeStringNot(actual);
   }
 
-  private boolean anyIsNull(String expected) {
-    return actual == null || expected == null;
+  private static class ExpectToBeStringNot implements ToBeString {
+
+    private final String actual;
+
+    private ExpectToBeStringNot(String actual) {
+      this.actual = actual;
+    }
+
+    @Override
+    public void toBeNull() {
+      if (actual == null) {
+        throw new IllegalArgumentException();
+      }
+    }
+
+    @Override
+    public void toBeEmpty() {
+      if ("".equals(actual)) {
+        throw new IllegalArgumentException();
+      }
+    }
+
+    @Override
+    public void toBe(String expected) {
+      if (actual != null && actual.equals(expected)) {
+        throw new IllegalArgumentException();
+      }
+    }
+
+    @Override
+    public ToBeString not() {
+      return new ExpectToBeString(actual);
+    }
   }
 }

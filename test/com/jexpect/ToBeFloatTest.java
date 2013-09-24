@@ -18,7 +18,7 @@ public class ToBeFloatTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_Actual_Fail_When_Actual_Is_Null() throws Exception {
-    expect(10.0f).toBe(null);
+    expect((float) 10).toBe(null);
   }
 
   @Test
