@@ -26,7 +26,7 @@ public class ExpectToBeString implements ToBeString {
 
   @Override
   public void toBeEmpty() {
-    if (!"".equals(actual)) {
+    if (actual == null || !actual.isEmpty()) {
       throw new IllegalArgumentException();
     }
   }
@@ -53,7 +53,7 @@ public class ExpectToBeString implements ToBeString {
 
     @Override
     public void toBeEmpty() {
-      if ("".equals(actual)) {
+      if (actual != null && actual.isEmpty()) {
         throw new IllegalArgumentException();
       }
     }

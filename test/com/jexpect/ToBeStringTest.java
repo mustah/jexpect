@@ -45,7 +45,7 @@ public class ToBeStringTest {
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void To_Be_Empty_Fail() throws Exception {
+  public void Expect_Nonempty_To_Be_Empty_Should_Fail() throws Exception {
     expect("s").toBeEmpty();
   }
 
