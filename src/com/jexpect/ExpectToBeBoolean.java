@@ -1,12 +1,10 @@
-package com.jexpect.matchers;
+package com.jexpect;
 
-import com.jexpect.ToBeBoolean;
-
-public class ExpectToBeBoolean implements ToBeBoolean {
+class ExpectToBeBoolean implements ToBeBoolean {
 
   private final boolean actual;
 
-  public ExpectToBeBoolean(boolean actual) {
+  ExpectToBeBoolean(boolean actual) {
     this.actual = actual;
   }
 

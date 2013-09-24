@@ -1,12 +1,10 @@
-package com.jexpect.matchers;
+package com.jexpect;
 
-import com.jexpect.ToBeString;
-
-public class ExpectToBeString implements ToBeString {
+class ExpectToBeString implements ToBeString {
 
   private final String actual;
 
-  public ExpectToBeString(String actual) {
+  ExpectToBeString(String actual) {
     this.actual = actual;
   }
 
