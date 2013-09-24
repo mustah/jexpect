@@ -15,12 +15,12 @@ public class ToBeStringTest {
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void To_Be_String_Fails() throws Exception {
+  public void To_Be_String_Should_Fail() throws Exception {
     expect("must").toBe("mattias");
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void To_Be_String_With_Expected_Null() throws Exception {
+  public void To_Be_String_With_Expected_Null_Should_Fail() throws Exception {
     expect("must").toBe(null);
   }
 
@@ -35,8 +35,13 @@ public class ToBeStringTest {
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void To_Be_Null_Fail() throws Exception {
+  public void Expected_Empty_String_To_Be_Null_Should_Fail() throws Exception {
     expect(EMPTY_STRING).toBeNull();
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void Expect_Null_To_Be_Empty_Should_Fail() throws Exception {
+    expect(NULL_STRING).toBeEmpty();
   }
 
   @Test
