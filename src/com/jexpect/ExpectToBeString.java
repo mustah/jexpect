@@ -25,7 +25,7 @@ class ExpectToBeString implements ToBeString {
   @Override
   public void toBeEmpty() {
     if (actual == null || !actual.isEmpty()) {
-      throw new IllegalArgumentException();
+      throw new IllegalArgumentException("Expected to be empty, but found: " + actual);
     }
   }
 
