@@ -1,5 +1,7 @@
 package com.jexpect;
 
+import static com.jexpect.util.ExceptionFactory.throwNewIllegalArgumentException;
+
 class ExpectToBeString implements ToBeString {
 
   private final String actual;
@@ -11,21 +13,21 @@ class ExpectToBeString implements ToBeString {
   @Override
   public void toBe(String expected) {
     if (actual == null || !actual.equals(expected)) {
-      throw new IllegalArgumentException();
+      throwNewIllegalArgumentException(expected, actual);
     }
   }
 
   @Override
   public void toBeNull() {
     if (actual != null) {
-      throw new IllegalArgumentException();
+      throwNewIllegalArgumentException("null", actual);
     }
   }
 
   @Override
   public void toBeEmpty() {
     if (actual == null || !actual.isEmpty()) {
-      throw new IllegalArgumentException("Expected to be empty, but found: " + actual);
+      throwNewIllegalArgumentException("empty", actual);
     }
   }
 
