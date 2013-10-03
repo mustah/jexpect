@@ -6,8 +6,8 @@ import static com.jexpect.Expect.expect;
 
 public class ToBeStringTest {
 
-  public static final String NULL_STRING = null;
-  public static final String EMPTY_STRING = "";
+  private static final String NULL_STRING = null;
+  private static final String EMPTY_STRING = "";
 
   @Test
   public void To_Be_String() throws Exception {
@@ -15,12 +15,12 @@ public class ToBeStringTest {
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void To_Be_String_Fails() throws Exception {
+  public void To_Be_String_Should_Fail() throws Exception {
     expect("must").toBe("mattias");
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void To_Be_String_With_Expected_Null() throws Exception {
+  public void To_Be_String_With_Expected_Null_Should_Fail() throws Exception {
     expect("must").toBe(null);
   }
 
@@ -35,27 +35,57 @@ public class ToBeStringTest {
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void To_Be_Null_Fail() throws Exception {
+  public void Expected_Empty_String_To_Be_Null_Should_Fail() throws Exception {
     expect(EMPTY_STRING).toBeNull();
   }
 
+  @Test(expected = IllegalArgumentException.class)
+  public void Expect_Null_To_Be_Empty_Should_Fail() throws Exception {
+    expect(NULL_STRING).toBeEmpty();
+  }
+
   @Test
-  public void To_Be_Empty() throws Exception {
+  public void Expect_Empty_To_Be_Empty() throws Exception {
     expect(EMPTY_STRING).toBeEmpty();
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void To_Be_Empty_Fail() throws Exception {
+  public void Expect_Nonempty_To_Be_Empty_Should_Fail() throws Exception {
     expect("s").toBeEmpty();
   }
 
   @Test
-  public void To_Be_Not_Empty() throws Exception {
-    expect("s").toBeNotEmpty();
+  public void Expect_Not_To_Be_Empty() throws Exception {
+    expect("s").not().toBeEmpty();
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void To_Be_Not_Empty_Fail() throws Exception {
-    expect(EMPTY_STRING).toBeNotEmpty();
+  public void Expect_Empty_Not_To_Be_Empty_Should_Fail() throws Exception {
+    expect(EMPTY_STRING).not().toBeEmpty();
+  }
+
+  @Test
+  public void Expect_Actual_To_Not_Be_As_Expected() throws Exception {
+    expect("a").not().toBe("b");
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void Expect_Actual_To_Not_Be_As_Expected_Should_Fail_When_They_Are_Same() throws Exception {
+    expect("a").not().toBe("a");
+  }
+
+  @Test
+  public void Expect_Actual_As_Null_To_Not_Be_As_Expected() throws Exception {
+    expect(null).not().toBe("a");
+  }
+
+  @Test
+  public void Expect_Actual_To_Not_Be_Null() throws Exception {
+    expect("a").not().toBe(null);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void Expect_Null_To_Be_Null_Should_Fail() throws Exception {
+    expect(NULL_STRING).toBe(null);
   }
 }
