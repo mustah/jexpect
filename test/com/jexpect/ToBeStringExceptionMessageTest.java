@@ -54,4 +54,36 @@ public class ToBeStringExceptionMessageTest {
                  }));
   }
 
+  @Test
+  public void When_Expected_Not_To_Be_As_Actual_Fails_Then_Exception_Should_Have_Message() throws Exception {
+    assertEquals("Expected not to be foo, but found: foo",
+                 getMessage(new Command() {
+                   @Override
+                   public void execute() {
+                     expect("foo").not().toBe("foo");
+                   }
+                 }));
+  }
+
+  @Test
+  public void When_Expected_Not_To_Be_Empty_Fails_Then_Exception_Should_Have_Message() throws Exception {
+    assertEquals("Expected not to be empty, but found: ",
+                 getMessage(new Command() {
+                   @Override
+                   public void execute() {
+                     expect("").not().toBeEmpty();
+                   }
+                 }));
+  }
+
+  @Test
+  public void When_Expected_Not_Be_Null_Fails_Then_Exception_Should_Have_Message() throws Exception {
+    assertEquals("Expected not to be null, but found: null",
+                 getMessage(new Command() {
+                   @Override
+                   public void execute() {
+                     expect(null).not().toBeNull();
+                   }
+                 }));
+  }
 }

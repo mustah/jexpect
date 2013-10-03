@@ -9,7 +9,15 @@ public final class ExceptionFactory {
     throw new IllegalArgumentException(createMessage(expected, actual));
   }
 
+  public static void throwNewIllegalArgumentExceptionForNot(String expected, String actual) {
+    throw new IllegalArgumentException(createMessageForNot(expected, actual));
+  }
+
   public static String createMessage(String expected, String actual) {
     return "Expected to be " + expected + ", but found: " + actual;
+  }
+
+  public static String createMessageForNot(String expected, String actual) {
+    return "Expected not to be " + expected + ", but found: " + actual;
   }
 }
