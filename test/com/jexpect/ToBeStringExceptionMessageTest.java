@@ -10,19 +10,20 @@ public class ToBeStringExceptionMessageTest {
 
   @Test
   public void When_Expected_To_Be_Empty_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    final String actual = "foo";
-
-    assertEquals("Expected to be empty, but found: " + actual,
+    assertEquals("Expected to be empty, but found: foo",
                  getMessage(new Command() {
                    @Override
                    public void execute() {
-                     expect(actual).toBeEmpty();
+                     expect("foo").toBeEmpty();
                    }
                  }));
+  }
 
+  @Test
+  public void Given_Null_When_Expected_To_Be_Empty_Fails_Then_Exception_Should_Have_Message() throws Exception {
     final String nullString = null;
 
-    assertEquals("Expected to be empty, but found: " + nullString,
+    assertEquals("Expected to be empty, but found: null",
                  getMessage(new Command() {
                    @Override
                    public void execute() {
@@ -33,27 +34,22 @@ public class ToBeStringExceptionMessageTest {
 
   @Test
   public void When_Expected_To_Be_Null_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    final String actual = "foo";
-
-    assertEquals("Expected to be null, but found: " + actual,
+    assertEquals("Expected to be null, but found: foo",
                  getMessage(new Command() {
                    @Override
                    public void execute() {
-                     expect(actual).toBeNull();
+                     expect("foo").toBeNull();
                    }
                  }));
   }
 
   @Test
   public void When_Expected_To_Be_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    final String actual = "foo";
-    final String expected = "bar";
-
-    assertEquals("Expected to be " + expected + ", but found: " + actual,
+    assertEquals("Expected to be bar, but found: foo",
                  getMessage(new Command() {
                    @Override
                    public void execute() {
-                     expect(actual).toBe(expected);
+                     expect("foo").toBe("bar");
                    }
                  }));
   }
