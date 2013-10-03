@@ -154,7 +154,7 @@ public class ToBeStringTest {
                  getMessage(new Command() {
                    @Override
                    public void execute() {
-                     expect("").not().toBeEmpty();
+                     expect(EMPTY_STRING).not().toBeEmpty();
                    }
                  }));
   }
@@ -165,7 +165,7 @@ public class ToBeStringTest {
                  getMessage(new Command() {
                    @Override
                    public void execute() {
-                     expect(null).not().toBeNull();
+                     expect(NULL_STRING).not().toBeNull();
                    }
                  }));
   }
