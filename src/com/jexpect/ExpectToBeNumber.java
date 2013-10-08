@@ -29,6 +29,13 @@ class ExpectToBeNumber<N extends Number & Comparable<? super N>> implements ToBe
   }
 
   @Override
+  public void toBeLessThanOrEqual(N expected) {
+    if (expected == null || comparator.compare(actual, expected) > 0) {
+      throwNewIllegalArgumentException(actual, "<=", expected);
+    }
+  }
+
+  @Override
   public void toBeGreaterThan(N expected) {
     if (expected == null || comparator.compare(actual, expected) <= 0) {
       throwNewIllegalArgumentException(actual, ">", expected);

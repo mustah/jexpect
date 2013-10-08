@@ -42,7 +42,7 @@ public class ToBeNumberTest {
   }
 
   @Test
-  public void When_Expected_To_Be_Less_Than_Null_Fails_Then_Exception_Should_Have_Message() throws Exception {
+  public void When_Expected_To_Be_Less_Than_To_Null_Value_Fails_Then_Exception_Should_Have_Message() throws Exception {
     assertEquals("Expected 5 < null",
                  getMessage(new Command() {
                    @Override
@@ -64,12 +64,34 @@ public class ToBeNumberTest {
   }
 
   @Test
-  public void When_Expected_To_Be_Same_When_Expected_Is_Null_Fails_Then_Exception_Should_Have_Message() throws Exception {
+  public void When_Expected_To_Be_Same_As_Null_Value_Fails_Then_Exception_Should_Have_Message() throws Exception {
     assertEquals("Expected 5 == null",
                  getMessage(new Command() {
                    @Override
                    public void execute() {
                      expect(5L).toBe(null);
+                   }
+                 }));
+  }
+
+  @Test
+  public void When_Expected_To_Be_Less_Than_Or_Equals_Fails_Then_Exception_Should_Have_Message() throws Exception {
+    assertEquals("Expected 5 <= 2",
+                 getMessage(new Command() {
+                   @Override
+                   public void execute() {
+                     expect(5L).toBeLessThanOrEqual(2L);
+                   }
+                 }));
+  }
+
+  @Test
+  public void When_Expected_To_Be_Less_Than_Or_Equals_To_Null_Value_Fails_Then_Exception_Should_Have_Message() throws Exception {
+    assertEquals("Expected 5 <= null",
+                 getMessage(new Command() {
+                   @Override
+                   public void execute() {
+                     expect(5L).toBeLessThanOrEqual(null);
                    }
                  }));
   }
