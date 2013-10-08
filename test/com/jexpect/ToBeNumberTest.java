@@ -51,4 +51,26 @@ public class ToBeNumberTest {
                    }
                  }));
   }
+
+  @Test
+  public void When_Expected_To_Be_Same_Fails_Then_Exception_Should_Have_Message() throws Exception {
+    assertEquals("Expected 5 == 100",
+                 getMessage(new Command() {
+                   @Override
+                   public void execute() {
+                     expect(5L).toBe(100L);
+                   }
+                 }));
+  }
+
+  @Test
+  public void When_Expected_To_Be_Same_When_Expected_Is_Null_Fails_Then_Exception_Should_Have_Message() throws Exception {
+    assertEquals("Expected 5 == null",
+                 getMessage(new Command() {
+                   @Override
+                   public void execute() {
+                     expect(5L).toBe(null);
+                   }
+                 }));
+  }
 }
