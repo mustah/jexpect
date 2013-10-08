@@ -14,22 +14,22 @@ class ExpectToBeNumber<N extends Number & Comparable<? super N>> implements ToBe
 
   @Override
   public void toBe(N expected) {
-    if (actual == null || !actual.equals(expected)) {
+    if (!actual.equals(expected)) {
       throw new IllegalArgumentException();
     }
   }
 
   @Override
   public void toBeLessThan(N expected) {
-    if (actual == null || comparator.compare(actual, expected) >= 0) {
+    if (comparator.compare(actual, expected) >= 0) {
       throw new IllegalArgumentException();
     }
   }
 
   @Override
   public void toBeGreaterThan(N expected) {
-    if (actual == null || comparator.compare(actual, expected) <= 0) {
-      throw new IllegalArgumentException();
+    if (expected == null || comparator.compare(actual, expected) <= 0) {
+      throw new IllegalArgumentException(String.format("Expected %s to be greater than %s", actual, expected));
     }
   }
 
