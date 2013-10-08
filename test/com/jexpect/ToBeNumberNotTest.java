@@ -42,7 +42,7 @@ public class ToBeNumberNotTest {
     expect(5d).not().toBeLessThan(10d);
   }
 
-  @Test(expected = IllegalArgumentException.class)
+  @Test
   public void Given_Same_Values_When_Expected_Not_Be_Less_Than_To_Fail_Then_Exception_Should_Be_Thrown() throws Exception {
     expect(5d).not().toBeLessThan(5d);
   }
@@ -54,6 +54,32 @@ public class ToBeNumberNotTest {
                    @Override
                    public void execute() {
                      expect(1d).not().toBeLessThan(5d);
+                   }
+                 }));
+  }
+
+  @Test
+  public void Expect_Not_To_Be_Less_Than_Or_Equal_To_Pass() throws Exception {
+    expect(10d).not().toBeLessThanOrEqual(5d);
+  }
+
+  @Test
+  public void Given_Same_Values_When_Expected_Not_To_Be_Less_Than_Or_Equal_To_Pass_() throws Exception {
+    expect(10d).not().toBeLessThanOrEqual(10d);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void Expected_Not_To_Be_Less_Than_Or_Equal_To_Fail_Then_Exception_Message_Should_Be_Displayed() throws Exception {
+    expect(5d).not().toBeLessThanOrEqual(10d);
+  }
+
+  @Test
+  public void Expected_Not_To_Be_Less_Or_Equal_Than_To_Fail_Then_Exception_Message_Should_Be_Displayed() throws Exception {
+    assertEquals("Expected 1.0 not to be <= 5.0",
+                 getMessageWhenFailed(new Command() {
+                   @Override
+                   public void execute() {
+                     expect(1d).not().toBeLessThanOrEqual(5d);
                    }
                  }));
   }
