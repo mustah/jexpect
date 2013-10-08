@@ -5,7 +5,7 @@ final class ExceptionHandler {
   private ExceptionHandler() {
   }
 
-  static String getMessage(Command command) throws Exception {
+  static String getMessageWhenFailed(Command command) throws Exception {
     try {
       command.execute();
       throw new IllegalStateException("Exception should have been thrown, before reaching this point");
