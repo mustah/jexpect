@@ -45,6 +45,16 @@ public class ToBeLongTest {
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_Less_Than_Or_Equal_Should_Fail() throws Exception {
     expect(6L).toBeLessThanOrEqual(3L);
-    expect(6L).toBeLessThanOrEqual(6L);
+  }
+
+  @Test
+  public void To_Be_Greater_Than_Or_Equal() throws Exception {
+    expect(3L).toBeGreaterThanOrEqual(3L);
+    expect(10L).toBeGreaterThanOrEqual(3L);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void To_Be_Greater_Than_Or_Equal_Should_Fail() throws Exception {
+    expect(1L).toBeGreaterThanOrEqual(3L);
   }
 }

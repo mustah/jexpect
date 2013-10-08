@@ -7,4 +7,6 @@ public interface ToBeNumber<N extends Number> extends ToBe<N> {
   void toBeLessThanOrEqual(N expected);
 
   void toBeGreaterThan(N expected);
+
+  void toBeGreaterThanOrEqual(N expected);
 }

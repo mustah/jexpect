@@ -95,4 +95,15 @@ public class ToBeNumberTest {
                    }
                  }));
   }
+
+  @Test
+  public void When_Expected_To_Be_Greater_Than_Or_Equals_Fails_Then_Exception_Should_Have_Message() throws Exception {
+    assertEquals("Expected 2 >= 5",
+                 getMessage(new Command() {
+                   @Override
+                   public void execute() {
+                     expect(2L).toBeGreaterThanOrEqual(5L);
+                   }
+                 }));
+  }
 }
