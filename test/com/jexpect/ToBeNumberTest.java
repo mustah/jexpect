@@ -10,7 +10,7 @@ public class ToBeNumberTest {
 
   @Test
   public void When_Expected_To_Be_Greater_Than_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected 5 to be greater than 10",
+    assertEquals("Expected 5 > 10",
                  getMessage(new Command() {
                    @Override
                    public void execute() {
@@ -21,7 +21,7 @@ public class ToBeNumberTest {
 
   @Test
   public void When_Expected_To_Be_Greater_Than_Null_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected 5 to be greater than null",
+    assertEquals("Expected 5 > null",
                  getMessage(new Command() {
                    @Override
                    public void execute() {
