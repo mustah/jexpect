@@ -69,12 +69,12 @@ public class ToBeNumberNotTest {
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void Expected_Not_To_Be_Less_Than_Or_Equal_To_Fail_Then_Exception_Message_Should_Be_Displayed() throws Exception {
+  public void Expected_Not_To_Be_Less_Than_Or_Equal_To_Fail() throws Exception {
     expect(5d).not().toBeLessThanOrEqual(10d);
   }
 
   @Test
-  public void Expected_Not_To_Be_Less_Or_Equal_Than_To_Fail_Then_Exception_Message_Should_Be_Displayed() throws Exception {
+  public void Expected_Not_To_Be_Less_Than_Or_Equal_To_Fail_Then_Exception_Message_Should_Be_Displayed() throws Exception {
     assertEquals("Expected 1.0 not to be <= 5.0",
                  getMessageWhenFailed(new Command() {
                    @Override
