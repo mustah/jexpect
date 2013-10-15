@@ -78,7 +78,7 @@ public class ToBeStringTest {
 
   @Test
   public void Expect_Actual_As_Null_To_Not_Be_As_Expected() throws Exception {
-    expect(null).not().toBe("a");
+    expect(NULL_STRING).not().toBe("a");
   }
 
   @Test

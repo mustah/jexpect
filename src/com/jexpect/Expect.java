@@ -1,5 +1,6 @@
 package com.jexpect;
 
+import java.util.Collection;
 import java.util.Comparator;
 
 public final class Expect {
@@ -59,4 +60,7 @@ public final class Expect {
     return new ExpectToBeNumber<Long>(actual, LONG_COMPARATOR);
   }
 
+  public static <T> ToBeCollection<T> expect(Collection<T> collection) {
+    return new ExpectToBeCollection<T>(collection);
+  }
 }
