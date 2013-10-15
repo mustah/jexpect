@@ -16,4 +16,11 @@ public class ExpectToBeCollection<T> implements ToBeCollection<T> {
       throw new IllegalArgumentException("Expected collection to be empty");
     }
   }
+
+  @Override
+  public void toContain(T item) {
+    if (collection == null || !collection.contains(item)) {
+      throw new IllegalArgumentException("Expected collection does not contain item: " + item);
+    }
+  }
 }
