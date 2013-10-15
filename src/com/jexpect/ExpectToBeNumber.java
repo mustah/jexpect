@@ -2,7 +2,7 @@ package com.jexpect;
 
 import java.util.Comparator;
 
-import static com.jexpect.util.ExceptionFactory.throwNewIllegalArgumentException;
+import static com.jexpect.Exceptions.throwNewIllegalArgumentException;
 
 class ExpectToBeNumber<N extends Number & Comparable<? super N>> implements ToBeNumber<N> {
 
