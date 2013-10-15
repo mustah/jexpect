@@ -18,7 +18,7 @@ public class ToBeBooleanTest {
     expect(true).toBe(false);
   }
 
-  @Test(expected = NullPointerException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void Expect_True_To_Be_Null_Should_Fail() throws Exception {
     expect(true).toBe(null);
   }
@@ -73,7 +73,7 @@ public class ToBeBooleanTest {
     expect(false).not().toBeFalse();
   }
 
-  @Test(expected = NullPointerException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void True_Not_To_Be_Null_Should_Fail() throws Exception {
     expect(true).not().toBe(null);
   }
@@ -115,6 +115,14 @@ public class ToBeBooleanTest {
                    @Override
                    public void execute() {
                      expect(true).toBe(false);
+                   }
+                 }));
+
+    assertEquals("Expected to be null, but found: true",
+                 getMessageWhenFailed(new Command() {
+                   @Override
+                   public void execute() {
+                     expect(true).toBe(null);
                    }
                  }));
   }
