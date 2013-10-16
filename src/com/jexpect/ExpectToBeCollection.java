@@ -2,11 +2,11 @@ package com.jexpect;
 
 import java.util.Collection;
 
-public class ExpectToBeCollection<T> implements ToBeCollection<T> {
+class ExpectToBeCollection<T> implements ToBeCollection<T> {
 
   private final Collection<T> collection;
 
-  public ExpectToBeCollection(Collection<T> collection) {
+  ExpectToBeCollection(Collection<T> collection) {
     this.collection = collection;
   }
 
