@@ -1,6 +1,6 @@
 package com.jexpect;
 
-public interface ToBeCollection<T> {
+public interface ToBeCollection<T> extends Not<ToBeCollection<T>> {
 
   void toBeEmpty();
 
