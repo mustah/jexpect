@@ -5,6 +5,7 @@ import org.junit.Test;
 import static com.jexpect.ExceptionHandler.getMessageWhenFailed;
 import static com.jexpect.Expect.expect;
 import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class ToBeStringTest {
 
@@ -89,6 +90,11 @@ public class ToBeStringTest {
   @Test(expected = IllegalArgumentException.class)
   public void Expect_Null_To_Be_Null_Should_Fail() throws Exception {
     expect(NULL_STRING).toBe(null);
+  }
+
+  @Test
+  public void Given_Any_String_Then_Consecutive_Expect_Not_Not_Functions_Should_Not_Be_Null() throws Exception {
+    assertNotNull(expect("foo").not().not());
   }
 
   @Test

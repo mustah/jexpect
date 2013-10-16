@@ -5,6 +5,7 @@ import org.junit.Test;
 import static com.jexpect.ExceptionHandler.getMessageWhenFailed;
 import static com.jexpect.Expect.expect;
 import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class ToBeNumberNotTest {
 
@@ -45,6 +46,11 @@ public class ToBeNumberNotTest {
   @Test
   public void Given_Same_Values_When_Expected_Not_Be_Less_Than_To_Fail_Then_Exception_Should_Be_Thrown() throws Exception {
     expect(5d).not().toBeLessThan(5d);
+  }
+
+  @Test
+  public void Given_Any_Number_When_Consecutive_Expect_Not_Not_Functions_Are_Called_Then_Result_Should_Not_Be_Null() throws Exception {
+    assertNotNull(expect(5d).not().not());
   }
 
   @Test

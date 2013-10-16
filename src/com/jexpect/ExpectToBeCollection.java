@@ -46,12 +46,14 @@ public class ExpectToBeCollection<T> implements ToBeCollection<T> {
 
     @Override
     public void toContain(T item) {
-      throw new IllegalArgumentException("Not implemented yet");
+      if (collection != null && collection.contains(item)) {
+        throw new IllegalArgumentException("Expected collection not to contain item: " + item);
+      }
     }
 
     @Override
     public ToBeCollection<T> not() {
-      throw new NullPointerException("Not implemented yet");
+      return new ExpectToBeCollection<T>(collection);
     }
   }
 }
