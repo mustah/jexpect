@@ -93,7 +93,7 @@ public class ToBeNumberNotTest {
   }
 
   @Test
-  public void Given_Same_Numbers_For_Actual_And_ExpectedThenExpect_Not_To_Be_Greater_Than_Should_Pass() throws Exception {
+  public void Given_Same_Numbers_For_Actual_And_Expected_Then_Expect_Not_To_Be_Greater_Than_Should_Pass() throws Exception {
     expect(50d).not().toBeGreaterThan(50d);
   }
 
@@ -116,4 +116,40 @@ public class ToBeNumberNotTest {
       }
     }));
   }
+
+  @Test
+  public void Expect_Not_Be_Greater_Than_Or_Equal_To_Should_Pass() throws Exception {
+    expect(30d).not().toBeGreaterThanOrEqual(50d);
+  }
+
+  @Test
+  public void Expect_Not_To_Be_Greater_Than_Or_Equal_Should_Fail_And_Have_Error_Message() throws Exception {
+    assertEquals("Expected 30.0 not to be >= 12.0", getMessageWhenFailed(new Command() {
+      @Override
+      public void execute() {
+        expect(30d).not().toBeGreaterThanOrEqual(12d);
+      }
+    }));
+  }
+
+  @Test
+  public void Expect_Not_To_Be_Greater_Than_Or_Equal_Than_Null_Value_Should_Fail_And_Have_Error_Message() throws Exception {
+    assertEquals("Expected 30.0 not to be >= null", getMessageWhenFailed(new Command() {
+      @Override
+      public void execute() {
+        expect(30d).not().toBeGreaterThanOrEqual(null);
+      }
+    }));
+  }
+
+  @Test
+  public void Expect_Not_To_Be_Greater_Than_Or_Equal_Than_Same_Value_Should_Fail_And_Have_Error_Message() throws Exception {
+    assertEquals("Expected 30.0 not to be >= 30.0", getMessageWhenFailed(new Command() {
+      @Override
+      public void execute() {
+        expect(30d).not().toBeGreaterThanOrEqual(30d);
+      }
+    }));
+  }
+
 }

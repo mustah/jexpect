@@ -94,7 +94,9 @@ class ExpectToBeNumber<N extends Number & Comparable<? super N>> implements ToBe
 
     @Override
     public void toBeGreaterThanOrEqual(N expected) {
-      throw new RuntimeException("not yet implemented");
+      if (expected == null || comparator.compare(actual, expected) >= 0) {
+        throwNewIllegalArgumentException(actual, "not to be >=", expected);
+      }
     }
 
     @Override
