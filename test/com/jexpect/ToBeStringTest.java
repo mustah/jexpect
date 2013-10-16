@@ -2,7 +2,7 @@ package com.jexpect;
 
 import org.junit.Test;
 
-import static com.jexpect.ExceptionHandler.getMessageWhenFailed;
+import static com.jexpect.ExceptionHandler.getExceptionMessage;
 import static com.jexpect.Expect.expect;
 import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -99,7 +99,7 @@ public class ToBeStringTest {
 
   @Test
   public void When_Expected_To_Be_Empty_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected to be empty, but found: foo", getMessageWhenFailed(new Command() {
+    assertEquals("Expected to be empty, but found: foo", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect("foo").toBeEmpty();
@@ -109,7 +109,7 @@ public class ToBeStringTest {
 
   @Test
   public void Given_Null_When_Expected_To_Be_Empty_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected to be empty, but found: null", getMessageWhenFailed(new Command() {
+    assertEquals("Expected to be empty, but found: null", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(NULL_STRING).toBeEmpty();
@@ -119,7 +119,7 @@ public class ToBeStringTest {
 
   @Test
   public void When_Expected_To_Be_Null_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected to be null, but found: foo", getMessageWhenFailed(new Command() {
+    assertEquals("Expected to be null, but found: foo", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect("foo").toBeNull();
@@ -129,7 +129,7 @@ public class ToBeStringTest {
 
   @Test
   public void When_Expected_To_Be_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected to be bar, but found: foo", getMessageWhenFailed(new Command() {
+    assertEquals("Expected to be bar, but found: foo", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect("foo").toBe("bar");
@@ -139,7 +139,7 @@ public class ToBeStringTest {
 
   @Test
   public void When_Expected_Not_To_Be_As_Actual_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected not to be foo, but found: foo", getMessageWhenFailed(new Command() {
+    assertEquals("Expected not to be foo, but found: foo", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect("foo").not().toBe("foo");
@@ -149,7 +149,7 @@ public class ToBeStringTest {
 
   @Test
   public void When_Expected_Not_To_Be_Empty_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected not to be empty, but found: ", getMessageWhenFailed(new Command() {
+    assertEquals("Expected not to be empty, but found: ", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(EMPTY_STRING).not().toBeEmpty();
@@ -159,7 +159,7 @@ public class ToBeStringTest {
 
   @Test
   public void When_Expected_Not_Be_Null_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected not to be null, but found: null", getMessageWhenFailed(new Command() {
+    assertEquals("Expected not to be null, but found: null", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(NULL_STRING).not().toBeNull();

@@ -2,7 +2,7 @@ package com.jexpect;
 
 import org.junit.Test;
 
-import static com.jexpect.ExceptionHandler.getMessageWhenFailed;
+import static com.jexpect.ExceptionHandler.getExceptionMessage;
 import static com.jexpect.Expect.expect;
 import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -22,7 +22,7 @@ public class ToBeNumberNotTest {
 
   @Test
   public void Expected_To_Be_Same_To_Fail_Then_Exception_Message_Should_Be_Displayed() throws Exception {
-    assertEquals("Expected 10.0 != 10.0", getMessageWhenFailed(new Command() {
+    assertEquals("Expected 10.0 != 10.0", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(10d).not().toBe(10d);
@@ -54,7 +54,7 @@ public class ToBeNumberNotTest {
 
   @Test
   public void Expected_Not_To_Be_Less_Than_To_Fail_Then_Exception_Message_Should_Be_Displayed() throws Exception {
-    assertEquals("Expected 1.0 not to be < 5.0", getMessageWhenFailed(new Command() {
+    assertEquals("Expected 1.0 not to be < 5.0", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(1d).not().toBeLessThan(5d);
@@ -79,7 +79,7 @@ public class ToBeNumberNotTest {
 
   @Test
   public void Expect_Not_To_Be_Less_Than_Or_Equal_To_Fail_Then_Exception_Message_Should_Be_Displayed() throws Exception {
-    assertEquals("Expected 1.0 not to be <= 5.0", getMessageWhenFailed(new Command() {
+    assertEquals("Expected 1.0 not to be <= 5.0", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(1d).not().toBeLessThanOrEqual(5d);
@@ -99,7 +99,7 @@ public class ToBeNumberNotTest {
 
   @Test
   public void Expect_Not_To_Be_Greater_Than_Should_Fail_And_Have_Error_Message() throws Exception {
-    assertEquals("Expected 30.0 not to be > 10.0", getMessageWhenFailed(new Command() {
+    assertEquals("Expected 30.0 not to be > 10.0", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(30d).not().toBeGreaterThan(10d);
@@ -109,7 +109,7 @@ public class ToBeNumberNotTest {
 
   @Test
   public void Expect_Not_To_Be_Greater_Than_Null_Value_Should_Fail_And_Have_Error_Message() throws Exception {
-    assertEquals("Expected 30.0 not to be > null", getMessageWhenFailed(new Command() {
+    assertEquals("Expected 30.0 not to be > null", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(30d).not().toBeGreaterThan(null);
@@ -124,7 +124,7 @@ public class ToBeNumberNotTest {
 
   @Test
   public void Expect_Not_To_Be_Greater_Than_Or_Equal_Should_Fail_And_Have_Error_Message() throws Exception {
-    assertEquals("Expected 30.0 not to be >= 12.0", getMessageWhenFailed(new Command() {
+    assertEquals("Expected 30.0 not to be >= 12.0", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(30d).not().toBeGreaterThanOrEqual(12d);
@@ -134,7 +134,7 @@ public class ToBeNumberNotTest {
 
   @Test
   public void Expect_Not_To_Be_Greater_Than_Or_Equal_Than_Null_Value_Should_Fail_And_Have_Error_Message() throws Exception {
-    assertEquals("Expected 30.0 not to be >= null", getMessageWhenFailed(new Command() {
+    assertEquals("Expected 30.0 not to be >= null", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(30d).not().toBeGreaterThanOrEqual(null);
@@ -144,7 +144,7 @@ public class ToBeNumberNotTest {
 
   @Test
   public void Expect_Not_To_Be_Greater_Than_Or_Equal_Than_Same_Value_Should_Fail_And_Have_Error_Message() throws Exception {
-    assertEquals("Expected 30.0 not to be >= 30.0", getMessageWhenFailed(new Command() {
+    assertEquals("Expected 30.0 not to be >= 30.0", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(30d).not().toBeGreaterThanOrEqual(30d);
