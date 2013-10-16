@@ -99,80 +99,71 @@ public class ToBeStringTest {
 
   @Test
   public void When_Expected_To_Be_Empty_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected to be empty, but found: foo",
-                 getMessageWhenFailed(new Command() {
-                   @Override
-                   public void execute() {
-                     expect("foo").toBeEmpty();
-                   }
-                 }));
+    assertEquals("Expected to be empty, but found: foo", getMessageWhenFailed(new Command() {
+      @Override
+      public void execute() {
+        expect("foo").toBeEmpty();
+      }
+    }));
   }
 
   @Test
   public void Given_Null_When_Expected_To_Be_Empty_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    final String nullString = null;
-
-    assertEquals("Expected to be empty, but found: null",
-                 getMessageWhenFailed(new Command() {
-                   @Override
-                   public void execute() {
-                     expect(nullString).toBeEmpty();
-                   }
-                 }));
+    assertEquals("Expected to be empty, but found: null", getMessageWhenFailed(new Command() {
+      @Override
+      public void execute() {
+        expect(NULL_STRING).toBeEmpty();
+      }
+    }));
   }
 
   @Test
   public void When_Expected_To_Be_Null_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected to be null, but found: foo",
-                 getMessageWhenFailed(new Command() {
-                   @Override
-                   public void execute() {
-                     expect("foo").toBeNull();
-                   }
-                 }));
+    assertEquals("Expected to be null, but found: foo", getMessageWhenFailed(new Command() {
+      @Override
+      public void execute() {
+        expect("foo").toBeNull();
+      }
+    }));
   }
 
   @Test
   public void When_Expected_To_Be_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected to be bar, but found: foo",
-                 getMessageWhenFailed(new Command() {
-                   @Override
-                   public void execute() {
-                     expect("foo").toBe("bar");
-                   }
-                 }));
+    assertEquals("Expected to be bar, but found: foo", getMessageWhenFailed(new Command() {
+      @Override
+      public void execute() {
+        expect("foo").toBe("bar");
+      }
+    }));
   }
 
   @Test
   public void When_Expected_Not_To_Be_As_Actual_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected not to be foo, but found: foo",
-                 getMessageWhenFailed(new Command() {
-                   @Override
-                   public void execute() {
-                     expect("foo").not().toBe("foo");
-                   }
-                 }));
+    assertEquals("Expected not to be foo, but found: foo", getMessageWhenFailed(new Command() {
+      @Override
+      public void execute() {
+        expect("foo").not().toBe("foo");
+      }
+    }));
   }
 
   @Test
   public void When_Expected_Not_To_Be_Empty_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected not to be empty, but found: ",
-                 getMessageWhenFailed(new Command() {
-                   @Override
-                   public void execute() {
-                     expect(EMPTY_STRING).not().toBeEmpty();
-                   }
-                 }));
+    assertEquals("Expected not to be empty, but found: ", getMessageWhenFailed(new Command() {
+      @Override
+      public void execute() {
+        expect(EMPTY_STRING).not().toBeEmpty();
+      }
+    }));
   }
 
   @Test
   public void When_Expected_Not_Be_Null_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected not to be null, but found: null",
-                 getMessageWhenFailed(new Command() {
-                   @Override
-                   public void execute() {
-                     expect(NULL_STRING).not().toBeNull();
-                   }
-                 }));
+    assertEquals("Expected not to be null, but found: null", getMessageWhenFailed(new Command() {
+      @Override
+      public void execute() {
+        expect(NULL_STRING).not().toBeNull();
+      }
+    }));
   }
 }
