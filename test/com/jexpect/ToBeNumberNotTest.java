@@ -22,13 +22,12 @@ public class ToBeNumberNotTest {
 
   @Test
   public void Expected_To_Be_Same_To_Fail_Then_Exception_Message_Should_Be_Displayed() throws Exception {
-    assertEquals("Expected 10.0 != 10.0",
-                 getMessageWhenFailed(new Command() {
-                   @Override
-                   public void execute() {
-                     expect(10d).not().toBe(10d);
-                   }
-                 }));
+    assertEquals("Expected 10.0 != 10.0", getMessageWhenFailed(new Command() {
+      @Override
+      public void execute() {
+        expect(10d).not().toBe(10d);
+      }
+    }));
   }
 
   @Test
@@ -55,13 +54,12 @@ public class ToBeNumberNotTest {
 
   @Test
   public void Expected_Not_To_Be_Less_Than_To_Fail_Then_Exception_Message_Should_Be_Displayed() throws Exception {
-    assertEquals("Expected 1.0 not to be < 5.0",
-                 getMessageWhenFailed(new Command() {
-                   @Override
-                   public void execute() {
-                     expect(1d).not().toBeLessThan(5d);
-                   }
-                 }));
+    assertEquals("Expected 1.0 not to be < 5.0", getMessageWhenFailed(new Command() {
+      @Override
+      public void execute() {
+        expect(1d).not().toBeLessThan(5d);
+      }
+    }));
   }
 
   @Test
@@ -75,19 +73,47 @@ public class ToBeNumberNotTest {
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void Expected_Not_To_Be_Less_Than_Or_Equal_To_Fail() throws Exception {
+  public void Expect_Not_To_Be_Less_Than_Or_Equal_To_Fail() throws Exception {
     expect(5d).not().toBeLessThanOrEqual(10d);
   }
 
   @Test
-  public void Expected_Not_To_Be_Less_Than_Or_Equal_To_Fail_Then_Exception_Message_Should_Be_Displayed() throws Exception {
-    assertEquals("Expected 1.0 not to be <= 5.0",
-                 getMessageWhenFailed(new Command() {
-                   @Override
-                   public void execute() {
-                     expect(1d).not().toBeLessThanOrEqual(5d);
-                   }
-                 }));
+  public void Expect_Not_To_Be_Less_Than_Or_Equal_To_Fail_Then_Exception_Message_Should_Be_Displayed() throws Exception {
+    assertEquals("Expected 1.0 not to be <= 5.0", getMessageWhenFailed(new Command() {
+      @Override
+      public void execute() {
+        expect(1d).not().toBeLessThanOrEqual(5d);
+      }
+    }));
   }
 
+  @Test
+  public void Expect_Not_To_Be_Greater_Than_Should_Pass() throws Exception {
+    expect(10d).not().toBeGreaterThan(50d);
+  }
+
+  @Test
+  public void Given_Same_Numbers_For_Actual_And_ExpectedThenExpect_Not_To_Be_Greater_Than_Should_Pass() throws Exception {
+    expect(50d).not().toBeGreaterThan(50d);
+  }
+
+  @Test
+  public void Expect_Not_To_Be_Greater_Than_Should_Fail_And_Have_Error_Message() throws Exception {
+    assertEquals("Expected 30.0 not to be > 10.0", getMessageWhenFailed(new Command() {
+      @Override
+      public void execute() {
+        expect(30d).not().toBeGreaterThan(10d);
+      }
+    }));
+  }
+
+  @Test
+  public void Expect_Not_To_Be_Greater_Than_Null_Value_Should_Fail_And_Have_Error_Message() throws Exception {
+    assertEquals("Expected 30.0 not to be > null", getMessageWhenFailed(new Command() {
+      @Override
+      public void execute() {
+        expect(30d).not().toBeGreaterThan(null);
+      }
+    }));
+  }
 }
