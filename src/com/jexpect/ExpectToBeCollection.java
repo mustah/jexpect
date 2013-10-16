@@ -46,12 +46,12 @@ public class ExpectToBeCollection<T> implements ToBeCollection<T> {
 
     @Override
     public void toContain(T item) {
-      throw new IllegalArgumentException();
+      throw new IllegalArgumentException("Not implemented yet");
     }
 
     @Override
     public ToBeCollection<T> not() {
-      throw new IllegalArgumentException();
+      throw new NullPointerException("Not implemented yet");
     }
   }
 }
