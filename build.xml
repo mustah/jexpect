@@ -5,6 +5,8 @@
   <property name="build.dir" value="./build"/>
   <property name="classes.dir" value="${build.dir}/classes"/>
   <property name="src.dir" value="./src"/>
+
+  <!-- can be overridden at the command line with -Dversion=[version-number] -->
   <property name="version" value="0.9"/>
 
   <target name="all" depends="jar-with-sources" description="Compiles and creates jar-file."/>
