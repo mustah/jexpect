@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<project name="jexpect" default="all">
+
+  <property name="build.dir" value="./build"/>
+  <property name="classes.dir" value="${build.dir}/classes"/>
+  <property name="src.dir" value="./src"/>
+
+  <!-- can be overridden at the command line with -Dversion=[version-number] -->
+  <property name="version" value="0.9"/>
+
+  <target name="all" depends="jar-with-sources" description="Compiles and creates jar-file."/>
+
+  <target name="compile" description="Compile java source files.">
+    <mkdir dir="${build.dir}/classes"/>
+    <javac srcdir="${src.dir}"
+           debug="on"
+           destdir="${build.dir}/classes"
+           source="1.6"
+           target="1.6"
+           includeantruntime="false">
+    </javac>
+    <copy toDir="${build.dir}/classes">
+      <fileset dir="${src.dir}" excludes="**/*.java"/>
+    </copy>
+  </target>
+
+  <target name="clean" description="Remove generated files.">
+    <delete dir="${build.dir}"/>
+  </target>
+
+  <target name="jar" depends="clean, compile" description="Build jar.">
+    <jar jarfile="${build.dir}/dist/jexpect-${version}.jar" basedir="${classes.dir}" compress="true"/>
+  </target>
+
+  <target name="jar-with-sources" depends="jar" description="Build jar with sources.">
+    <jar jarfile="${build.dir}/dist/jexpect-${version}-src.jar" compress="true">
+      <fileset dir="${src.dir}"/>
+    </jar>
+  </target>
+
+</project>
