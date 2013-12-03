@@ -5,11 +5,12 @@
   <property name="build.dir" value="./build"/>
   <property name="classes.dir" value="${build.dir}/classes"/>
   <property name="src.dir" value="./src"/>
+  <property name="test.dir" value="./test"/>
 
   <!-- can be overridden at the command line with -Dversion=[version-number] -->
   <property name="version" value="0.9"/>
 
-  <target name="all" depends="jar-with-sources" description="Compiles and creates jar-file."/>
+  <target name="all" depends="jar-with-sources-and-tests" description="Compiles and creates jar-file."/>
 
   <target name="compile" description="Compile java source files.">
     <mkdir dir="${build.dir}/classes"/>
@@ -36,6 +37,14 @@
   <target name="jar-with-sources" depends="jar" description="Build jar with sources.">
     <jar jarfile="${build.dir}/dist/jexpect-${version}-src.jar" compress="true">
       <fileset dir="${src.dir}"/>
+    </jar>
+  </target>
+
+  <target name="jar-with-sources-and-tests" depends="jar-with-sources"
+          description="Build jar with sources and include test files.">
+    <jar jarfile="${build.dir}/dist/jexpect-${version}-all.jar" compress="true">
+      <fileset dir="${src.dir}"/>
+      <fileset dir="${test.dir}"/>
     </jar>
   </target>
 
