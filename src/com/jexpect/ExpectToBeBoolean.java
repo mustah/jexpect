@@ -12,23 +12,20 @@ class ExpectToBeBoolean implements ToBeBoolean {
 
   @Override
   public void toBeTrue() {
-    if (!actual) {
+    if (!actual)
       throwNewIllegalArgumentException(true, actual);
-    }
   }
 
   @Override
   public void toBeFalse() {
-    if (actual) {
+    if (actual)
       throwNewIllegalArgumentException(false, actual);
-    }
   }
 
   @Override
   public void toBe(Boolean expected) {
-    if (expected == null || actual != expected) {
+    if (expected == null || actual != expected)
       throwNewIllegalArgumentException(expected, actual);
-    }
   }
 
   @Override

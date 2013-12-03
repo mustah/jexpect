@@ -2,8 +2,7 @@ package com.jexpect;
 
 final class ExceptionHandler {
 
-  private ExceptionHandler() {
-  }
+  private ExceptionHandler() {}
 
   static String getExceptionMessage(Command command) throws Exception {
     try {
@@ -13,5 +12,4 @@ final class ExceptionHandler {
       return e.getMessage();
     }
   }
-
 }
