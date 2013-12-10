@@ -4,7 +4,7 @@
 
   <property name="build.dir" value="./build"/>
   <property name="classes.dir" value="${build.dir}/classes"/>
-  <property name="src.dir" value="./src"/>
+  <property name="src.dir" value="./java"/>
   <property name="test.dir" value="./test"/>
 
   <!-- can be overridden at the command line with -Dversion=[version-number] -->
@@ -22,7 +22,7 @@
            includeantruntime="false">
     </javac>
     <copy toDir="${build.dir}/classes">
-      <fileset dir="${src.dir}" excludes="**/*.java"/>
+      <fileset dir="java" excludes="**/*.java"/>
     </copy>
   </target>
 
@@ -36,14 +36,14 @@
 
   <target name="jar-with-sources" depends="jar" description="Build jar with sources.">
     <jar jarfile="${build.dir}/dist/jexpect-${version}-src.jar" compress="true">
-      <fileset dir="${src.dir}"/>
+      <fileset dir="java"/>
     </jar>
   </target>
 
   <target name="jar-with-sources-and-tests" depends="jar-with-sources"
           description="Build jar with sources and include test files.">
     <jar jarfile="${build.dir}/dist/jexpect-${version}-all.jar" compress="true">
-      <fileset dir="${src.dir}"/>
+      <fileset dir="java"/>
       <fileset dir="${test.dir}"/>
     </jar>
   </target>

@@ -2,7 +2,8 @@ package com.jexpect;
 
 final class Exceptions {
 
-  private Exceptions() {}
+  private Exceptions() {
+  }
 
   public static <N extends Number> void throwNewIllegalArgumentException(N actual, String operand, N expected) {
     throw new IllegalArgumentException(String.format("Expected %s %s %s", actual, operand, expected));

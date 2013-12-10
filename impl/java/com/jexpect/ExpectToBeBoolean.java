@@ -1,6 +1,6 @@
 package com.jexpect;
 
-import static com.jexpect.Exceptions.throwNewIllegalArgumentException;
+import com.jexpect.api.ToBeBoolean;
 
 class ExpectToBeBoolean implements ToBeBoolean {
 
@@ -13,19 +13,19 @@ class ExpectToBeBoolean implements ToBeBoolean {
   @Override
   public void toBeTrue() {
     if (!actual)
-      throwNewIllegalArgumentException(true, actual);
+      Exceptions.throwNewIllegalArgumentException(true, actual);
   }
 
   @Override
   public void toBeFalse() {
     if (actual)
-      throwNewIllegalArgumentException(false, actual);
+      Exceptions.throwNewIllegalArgumentException(false, actual);
   }
 
   @Override
   public void toBe(Boolean expected) {
     if (expected == null || actual != expected)
-      throwNewIllegalArgumentException(expected, actual);
+      Exceptions.throwNewIllegalArgumentException(expected, actual);
   }
 
   @Override

@@ -1,4 +1,4 @@
-package com.jexpect;
+package com.jexpect.api;
 
 public interface ToBeNumber<N extends Number> extends ToBe<N>, Not<ToBeNumber<N>> {
 

@@ -1,4 +1,4 @@
-package com.jexpect;
+package com.jexpect.api;
 
 public interface ToBeBoolean extends ToBe<Boolean>, Not<ToBeBoolean> {
 

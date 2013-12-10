@@ -3,6 +3,11 @@ package com.jexpect;
 import java.util.Collection;
 import java.util.Comparator;
 
+import com.jexpect.api.ToBeBoolean;
+import com.jexpect.api.ToBeCollection;
+import com.jexpect.api.ToBeNumber;
+import com.jexpect.api.ToBeString;
+
 public final class Expect {
 
   private Expect() {

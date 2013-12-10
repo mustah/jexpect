@@ -1,4 +1,4 @@
-package com.jexpect;
+package com.jexpect.api;
 
 public interface ToBeString extends ToBe<String>, Not<ToBeString> {
 
