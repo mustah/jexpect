@@ -4,7 +4,8 @@
 
   <property name="build.dir" value="./build"/>
   <property name="classes.dir" value="${build.dir}/classes"/>
-  <property name="src.dir" value="./java"/>
+  <property name="api.dir" value="./api/java"/>
+  <property name="impl.dir" value="./impl/java"/>
   <property name="test.dir" value="./test"/>
 
   <!-- can be overridden at the command line with -Dversion=[version-number] -->
@@ -14,15 +15,17 @@
 
   <target name="compile" description="Compile java source files.">
     <mkdir dir="${build.dir}/classes"/>
-    <javac srcdir="${src.dir}"
+    <javac destdir="${build.dir}/classes"
            debug="on"
-           destdir="${build.dir}/classes"
            source="1.6"
            target="1.6"
            includeantruntime="false">
+      <src path="${api.dir}"/>
+      <src path="${impl.dir}"/>
     </javac>
     <copy toDir="${build.dir}/classes">
-      <fileset dir="java" excludes="**/*.java"/>
+      <fileset dir="${impl.dir}" excludes="**/*.java"/>
+      <fileset dir="${api.dir}" excludes="**/*.java"/>
     </copy>
   </target>
 
@@ -36,14 +39,16 @@
 
   <target name="jar-with-sources" depends="jar" description="Build jar with sources.">
     <jar jarfile="${build.dir}/dist/jexpect-${version}-src.jar" compress="true">
-      <fileset dir="java"/>
+      <fileset dir="${impl.dir}"/>
+      <fileset dir="${api.dir}"/>
     </jar>
   </target>
 
   <target name="jar-with-sources-and-tests" depends="jar-with-sources"
           description="Build jar with sources and include test files.">
     <jar jarfile="${build.dir}/dist/jexpect-${version}-all.jar" compress="true">
-      <fileset dir="java"/>
+      <fileset dir="${impl.dir}"/>
+      <fileset dir="${api.dir}"/>
       <fileset dir="${test.dir}"/>
     </jar>
   </target>
