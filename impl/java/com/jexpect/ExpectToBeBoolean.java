@@ -1,7 +1,5 @@
 package com.jexpect;
 
-import com.jexpect.api.ToBeBoolean;
-
 class ExpectToBeBoolean implements ToBeBoolean {
 
   private final boolean actual;

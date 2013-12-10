@@ -2,8 +2,6 @@ package com.jexpect;
 
 import java.util.Collection;
 
-import com.jexpect.api.ToBeCollection;
-
 class ExpectToBeCollection<T> implements ToBeCollection<T> {
 
   private final Collection<T> collection;

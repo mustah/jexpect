@@ -2,8 +2,6 @@ package com.jexpect;
 
 import java.util.Comparator;
 
-import com.jexpect.api.ToBeNumber;
-
 class ExpectToBeNumber<N extends Number & Comparable<? super N>> implements ToBeNumber<N> {
 
   private final N actual;

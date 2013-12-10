@@ -1,4 +1,4 @@
-package com.jexpect.api;
+package com.jexpect;
 
 public interface Not<T> {
 

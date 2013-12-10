@@ -1,7 +1,5 @@
 package com.jexpect;
 
-import com.jexpect.api.ToBeString;
-
 class ExpectToBeString implements ToBeString {
 
   private static final String STRING_NAMED_EMPTY = "empty";
