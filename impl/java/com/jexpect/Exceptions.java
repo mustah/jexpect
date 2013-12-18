@@ -14,6 +14,6 @@ final class Exceptions {
   }
 
   static void throwNewIllegalArgumentExceptionForNot(Object expected, Object actual) {
-    throw new IllegalArgumentException(String.format("Expected not to be %s, but found: %s", expected, actual));
+    throw new IllegalArgumentException(String.format("Expected not to be <%s>, but found: <%s>", expected, actual));
   }
 }

@@ -2,8 +2,6 @@ package com.jexpect;
 
 class ExpectToBeString implements ToBeString {
 
-  private static final String STRING_NAMED_EMPTY = "empty";
-
   private final String actual;
 
   ExpectToBeString(String actual) {
@@ -12,20 +10,23 @@ class ExpectToBeString implements ToBeString {
 
   @Override
   public void toBe(String expected) {
-    if (actual == null || !actual.equals(expected))
+    if (actual == null || !actual.equals(expected)) {
       Exceptions.throwNewIllegalArgumentException(expected, actual);
+    }
   }
 
   @Override
   public void toBeNull() {
-    if (actual != null)
+    if (actual != null) {
       Exceptions.throwNewIllegalArgumentException("null", actual);
+    }
   }
 
   @Override
   public void toBeEmpty() {
-    if (actual == null || !actual.isEmpty())
-      Exceptions.throwNewIllegalArgumentException(STRING_NAMED_EMPTY, actual);
+    if (actual == null || !actual.isEmpty()) {
+      Exceptions.throwNewIllegalArgumentException("empty", actual);
+    }
   }
 
   @Override
@@ -43,20 +44,23 @@ class ExpectToBeString implements ToBeString {
 
     @Override
     public void toBeNull() {
-      if (actual == null)
+      if (actual == null) {
         Exceptions.throwNewIllegalArgumentExceptionForNot(null, null);
+      }
     }
 
     @Override
     public void toBeEmpty() {
-      if (actual != null && actual.isEmpty())
-        Exceptions.throwNewIllegalArgumentExceptionForNot(STRING_NAMED_EMPTY, "");
+      if (actual != null && actual.isEmpty()) {
+        Exceptions.throwNewIllegalArgumentExceptionForNot("", "");
+      }
     }
 
     @Override
     public void toBe(String expected) {
-      if (actual != null && actual.equals(expected))
+      if (actual != null && actual.equals(expected)) {
         Exceptions.throwNewIllegalArgumentExceptionForNot(expected, actual);
+      }
     }
 
     @Override
