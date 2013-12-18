@@ -65,7 +65,7 @@ class ExpectToBeNumber<N extends Number & Comparable<? super N>> implements ToBe
     @Override
     public void toBe(N expected) {
       if (expected == null || comparator.compare(actual, expected) == 0) {
-        Exceptions.throwNewIllegalArgumentException(actual, "!=", expected);
+        Exceptions.throwNewIllegalArgumentException(actual, "not to be", expected);
       }
     }
 

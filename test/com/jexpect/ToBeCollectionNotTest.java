@@ -4,10 +4,12 @@ import java.util.Collections;
 
 import org.junit.Test;
 
-import static com.jexpect.ExceptionHandler.getExceptionMessage;
+import com.jexpect.util.Command;
+
 import static com.jexpect.Expect.expect;
 import static com.jexpect.ToBeCollectionTest.NON_EMPTY_COLLECTION;
 import static com.jexpect.ToBeCollectionTest.NULL_COLLECTION;
+import static com.jexpect.util.ExceptionHandler.getExceptionMessage;
 import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 

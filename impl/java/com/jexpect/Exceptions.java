@@ -6,7 +6,7 @@ final class Exceptions {
   }
 
   static <N extends Number> void throwNewIllegalArgumentException(N actual, String operand, N expected) {
-    throw new IllegalArgumentException(String.format("Expected %s %s %s", actual, operand, expected));
+    throw new IllegalArgumentException(String.format("Expected <%s> %s <%s>", actual, operand, expected));
   }
 
   static void throwNewIllegalArgumentException(Object expected, Object actual) {

@@ -1,10 +1,11 @@
-package com.jexpect;
+package com.jexpect.util;
 
-final class ExceptionHandler {
+public final class ExceptionHandler {
 
-  private ExceptionHandler() {}
+  private ExceptionHandler() {
+  }
 
-  static String getExceptionMessage(Command command) throws Exception {
+  public static String getExceptionMessage(Command command) throws Exception {
     try {
       command.execute();
       throw new IllegalStateException("Exception should have been thrown, before reaching this point");
