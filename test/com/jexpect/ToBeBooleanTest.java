@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static com.jexpect.ExceptionHandler.getExceptionMessage;
 import static com.jexpect.Expect.expect;
-import static junit.framework.Assert.assertEquals;
+import static org.fest.assertions.api.Assertions.assertThat;
 
 public class ToBeBooleanTest {
 
@@ -80,7 +80,7 @@ public class ToBeBooleanTest {
 
   @Test
   public void When_Expected_False_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected to be false, but found: true", getExceptionMessage(new Command() {
+    assertThat("Expected to be <false>, but found: <true>").isEqualTo(getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(true).toBeFalse();
@@ -90,7 +90,7 @@ public class ToBeBooleanTest {
 
   @Test
   public void When_Expected_To_Be_True_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected to be true, but found: false", getExceptionMessage(new Command() {
+    assertThat("Expected to be <true>, but found: <false>").isEqualTo(getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(false).toBeTrue();
@@ -100,21 +100,21 @@ public class ToBeBooleanTest {
 
   @Test
   public void When_Expected_Actual_To_Be_Same_As_Expected_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected to be true, but found: false", getExceptionMessage(new Command() {
+    assertThat("Expected to be <true>, but found: <false>").isEqualTo(getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(false).toBe(true);
       }
     }));
 
-    assertEquals("Expected to be false, but found: true", getExceptionMessage(new Command() {
+    assertThat("Expected to be <false>, but found: <true>").isEqualTo(getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(true).toBe(false);
       }
     }));
 
-    assertEquals("Expected to be null, but found: true", getExceptionMessage(new Command() {
+    assertThat("Expected to be <null>, but found: <true>").isEqualTo(getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(true).toBe(null);

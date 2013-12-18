@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import static com.jexpect.ExceptionHandler.getExceptionMessage;
 import static com.jexpect.Expect.expect;
-import static junit.framework.Assert.assertEquals;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 public class ToBeStringTest {
@@ -99,7 +98,7 @@ public class ToBeStringTest {
 
   @Test
   public void When_Expected_To_Be_Empty_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected to be empty, but found: foo", getExceptionMessage(new Command() {
+    assertThat("Expected to be <>, but found: <foo>").isEqualTo(getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect("foo").toBeEmpty();
@@ -109,7 +108,7 @@ public class ToBeStringTest {
 
   @Test
   public void Given_Null_When_Expected_To_Be_Empty_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected to be empty, but found: null", getExceptionMessage(new Command() {
+    assertThat("Expected to be <>, but found: <null>").isEqualTo(getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(NULL_STRING).toBeEmpty();
@@ -119,7 +118,7 @@ public class ToBeStringTest {
 
   @Test
   public void When_Expected_To_Be_Null_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertThat("Expected to be null, but found: foo").isEqualTo(getExceptionMessage(new Command() {
+    assertThat("Expected to be <null>, but found: <foo>").isEqualTo(getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect("foo").toBeNull();
@@ -129,7 +128,7 @@ public class ToBeStringTest {
 
   @Test
   public void When_Expected_To_Be_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected to be bar, but found: foo", getExceptionMessage(new Command() {
+    assertThat("Expected to be <bar>, but found: <foo>").isEqualTo(getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect("foo").toBe("bar");

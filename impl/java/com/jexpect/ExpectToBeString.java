@@ -11,21 +11,21 @@ class ExpectToBeString implements ToBeString {
   @Override
   public void toBe(String expected) {
     if (actual == null || !actual.equals(expected)) {
-      Exceptions.throwNewIllegalArgumentException(expected, actual);
+      throw new IllegalArgumentException(String.format("Expected to be <%s>, but found: <%s>", expected, actual));
     }
   }
 
   @Override
   public void toBeNull() {
     if (actual != null) {
-      Exceptions.throwNewIllegalArgumentException("null", actual);
+      throw new IllegalArgumentException(String.format("Expected to be <%s>, but found: <%s>", "null", actual));
     }
   }
 
   @Override
   public void toBeEmpty() {
     if (actual == null || !actual.isEmpty()) {
-      Exceptions.throwNewIllegalArgumentException("empty", actual);
+      throw new IllegalArgumentException(String.format("Expected to be <%s>, but found: <%s>", "", actual));
     }
   }
 

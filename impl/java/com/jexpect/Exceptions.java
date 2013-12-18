@@ -10,7 +10,7 @@ final class Exceptions {
   }
 
   static void throwNewIllegalArgumentException(Object expected, Object actual) {
-    throw new IllegalArgumentException(String.format("Expected to be %s, but found: %s", expected, actual));
+    throw new IllegalArgumentException(String.format("Expected to be <%s>, but found: <%s>", expected, actual));
   }
 
   static void throwNewIllegalArgumentExceptionForNot(Object expected, Object actual) {
