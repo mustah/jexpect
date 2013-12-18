@@ -5,7 +5,7 @@ import org.junit.Test;
 import static com.jexpect.ExceptionHandler.getExceptionMessage;
 import static com.jexpect.Expect.expect;
 import static junit.framework.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.fest.assertions.api.Assertions.assertThat;
 
 public class ToBeStringTest {
 
@@ -94,7 +94,7 @@ public class ToBeStringTest {
 
   @Test
   public void Given_Any_String_Then_Consecutive_Expect_Not_Not_Functions_Should_Not_Be_Null() throws Exception {
-    assertNotNull(expect("foo").not().not());
+    assertThat(expect("foo").not().not()).isNotNull();
   }
 
   @Test
@@ -119,7 +119,7 @@ public class ToBeStringTest {
 
   @Test
   public void When_Expected_To_Be_Null_Fails_Then_Exception_Should_Have_Message() throws Exception {
-    assertEquals("Expected to be null, but found: foo", getExceptionMessage(new Command() {
+    assertThat("Expected to be null, but found: foo").isEqualTo(getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect("foo").toBeNull();

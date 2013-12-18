@@ -9,6 +9,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="TEST" name="fest-assert-core-2.0M10-sources" level="project" />
     <orderEntry type="library" name="junit-4.10" level="application" />
     <orderEntry type="module" module-name="api" />
     <orderEntry type="module" module-name="impl" scope="TEST" />

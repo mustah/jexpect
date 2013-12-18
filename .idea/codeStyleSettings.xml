@@ -60,14 +60,6 @@
         <option name="DOWHILE_BRACE_FORCE" value="1" />
         <option name="WHILE_BRACE_FORCE" value="1" />
         <option name="FOR_BRACE_FORCE" value="1" />
-        <CssCodeStyleSettings>
-          <option name="VALUE_ALIGNMENT" value="1" />
-        </CssCodeStyleSettings>
-        <JSCodeStyleSettings>
-          <option name="INDENT_PACKAGE_CHILDREN" value="1" />
-          <option name="SPACE_BEFORE_PROPERTY_COLON" value="true" />
-          <option name="SPACE_BEFORE_FUNCTION_LEFT_PARENTH" value="false" />
-        </JSCodeStyleSettings>
         <XML>
           <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
         </XML>
