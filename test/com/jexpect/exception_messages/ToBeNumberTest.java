@@ -1,4 +1,4 @@
-package com.jexpect;
+package com.jexpect.exception_messages;
 
 import org.junit.Test;
 
