@@ -3,7 +3,7 @@ package com.jexpect;
 import org.junit.Test;
 
 import static com.jexpect.Expect.expect;
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.junit.Assert.assertNotNull;
 
 public class ToBeStringTest {
 
@@ -92,6 +92,6 @@ public class ToBeStringTest {
 
   @Test
   public void Given_Any_String_Then_Consecutive_Expect_Not_Not_Functions_Should_Not_Be_Null() throws Exception {
-    assertThat(expect("foo").not().not()).isNotNull();
+    assertNotNull(expect("foo").not().not());
   }
 }
