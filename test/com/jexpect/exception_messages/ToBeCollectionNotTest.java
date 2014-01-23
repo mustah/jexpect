@@ -33,7 +33,7 @@ public class ToBeCollectionNotTest {
 
   @Test
   public void Given_Collection_When_Expect_To_Not_Contain_Item_Does_Contain_It_Should_Fail() throws Exception {
-    assertEquals("Expected collection not to contain item: 10", getExceptionMessage(new Command() {
+    assertEquals("Expected collection not to contain item: <10>", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(NON_EMPTY_COLLECTION).not().toContain(10);

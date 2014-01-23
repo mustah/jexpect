@@ -20,7 +20,7 @@ class ExpectToBeCollection<T> implements ToBeCollection<T> {
   @Override
   public void toContain(T item) {
     if (collection == null || !collection.contains(item)) {
-      throw new IllegalArgumentException("Expected collection does not contain item: " + item);
+      throw new IllegalArgumentException(String.format("Expected collection does not contain item: <%s>", item));
     }
   }
 
@@ -47,7 +47,7 @@ class ExpectToBeCollection<T> implements ToBeCollection<T> {
     @Override
     public void toContain(T item) {
       if (collection != null && collection.contains(item)) {
-        throw new IllegalArgumentException("Expected collection not to contain item: " + item);
+        throw new IllegalArgumentException(String.format("Expected collection not to contain item: <%s>", item));
       }
     }
 

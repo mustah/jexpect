@@ -34,7 +34,7 @@ public class ToBeCollectionTest {
 
   @Test
   public void Given_Empty_Collection_When_Expect_To_Contain_Item_Should_Fail_And_Have_Error_Message() throws Exception {
-    assertEquals("Expected collection does not contain item: 5", getExceptionMessage(new Command() {
+    assertEquals("Expected collection does not contain item: <5>", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(Collections.<Integer>emptyList()).toContain(5);
@@ -44,7 +44,7 @@ public class ToBeCollectionTest {
 
   @Test
   public void Given_Null_Collection_When_Expect_To_Contain_Item_Should_Fail_And_Have_Error_Message() throws Exception {
-    assertEquals("Expected collection does not contain item: 5", getExceptionMessage(new Command() {
+    assertEquals("Expected collection does not contain item: <5>", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(NULL_COLLECTION).toContain(5);
