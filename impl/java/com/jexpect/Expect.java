@@ -60,7 +60,11 @@ public final class Expect {
     return new ExpectToBeNumber<Long>(actual, LONG_COMPARATOR);
   }
 
-  public static <T> ToBeCollection<T> expect(Collection<T> collection) {
-    return new ExpectToBeCollection<T>(collection);
+  public static <T> ToBeCollection<T> expect(Collection<T> actual) {
+    return new ExpectToBeCollection<T>(actual);
+  }
+
+  public static <T> ToBeCollection<T> expect(Iterable<T> actual) {
+    return new ExpectToBeIterable<T>(actual);
   }
 }
