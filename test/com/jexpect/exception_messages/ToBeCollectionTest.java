@@ -13,7 +13,6 @@ import static com.jexpect.util.ExceptionHandler.getExceptionMessage;
 import static junit.framework.Assert.assertEquals;
 
 public class ToBeCollectionTest {
-
   @Test
   public void Given_Non_Empty_Collection_When_Expect_To_Be_Empty_Should_Fail_And_Have_Error_Message() throws Exception {
     assertEquals("Expected collection to be empty", getExceptionMessage(new Command() {

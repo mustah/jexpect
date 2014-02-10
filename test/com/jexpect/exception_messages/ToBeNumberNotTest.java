@@ -9,7 +9,6 @@ import static com.jexpect.util.ExceptionHandler.getExceptionMessage;
 import static junit.framework.Assert.assertEquals;
 
 public class ToBeNumberNotTest {
-
   @Test
   public void Expected_To_Be_Same_To_Fail_Then_Exception_Message_Should_Be_Displayed() throws Exception {
     assertEquals("Expected <10.0> not to be <10.0>", getExceptionMessage(new Command() {
