@@ -7,8 +7,8 @@ import org.junit.Test;
 import com.jexpect.util.Command;
 
 import static com.jexpect.Expect.expect;
-import static com.jexpect.ToBeCollectionTest.NON_EMPTY_COLLECTION;
-import static com.jexpect.ToBeCollectionTest.NULL_COLLECTION;
+import static com.jexpect.util.DataRepository.NON_EMPTY_COLLECTION;
+import static com.jexpect.util.DataRepository.NULL_COLLECTION;
 import static com.jexpect.util.ExceptionHandler.getExceptionMessage;
 import static junit.framework.Assert.assertEquals;
 

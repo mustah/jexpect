@@ -1,21 +1,18 @@
 package com.jexpect.exception_messages;
 
 import java.util.Collections;
-import java.util.List;
 
 import org.junit.Test;
 
 import com.jexpect.util.Command;
-import com.jexpect.util.Lists;
 
 import static com.jexpect.Expect.expect;
+import static com.jexpect.util.DataRepository.NON_EMPTY_COLLECTION;
+import static com.jexpect.util.DataRepository.NULL_COLLECTION;
 import static com.jexpect.util.ExceptionHandler.getExceptionMessage;
 import static junit.framework.Assert.assertEquals;
 
 public class ToBeCollectionTest {
-
-  public static final List<Integer> NULL_COLLECTION = null;
-  public static final List<Integer> NON_EMPTY_COLLECTION = Lists.newArrayList(5, 10);
 
   @Test
   public void Given_Non_Empty_Collection_When_Expect_To_Be_Empty_Should_Fail_And_Have_Error_Message() throws Exception {

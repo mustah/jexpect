@@ -3,12 +3,11 @@ package com.jexpect;
 import org.junit.Test;
 
 import static com.jexpect.Expect.expect;
+import static com.jexpect.util.DataRepository.EMPTY_STRING;
+import static com.jexpect.util.DataRepository.NULL_STRING;
 import static org.junit.Assert.assertNotNull;
 
 public class ToBeStringTest {
-
-  private static final String NULL_STRING = null;
-  private static final String EMPTY_STRING = "";
 
   @Test
   public void To_Be_String() throws Exception {

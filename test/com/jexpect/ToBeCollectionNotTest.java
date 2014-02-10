@@ -5,8 +5,8 @@ import java.util.Collections;
 import org.junit.Test;
 
 import static com.jexpect.Expect.expect;
-import static com.jexpect.ToBeCollectionTest.NON_EMPTY_COLLECTION;
-import static com.jexpect.ToBeCollectionTest.NULL_COLLECTION;
+import static com.jexpect.util.DataRepository.NON_EMPTY_COLLECTION;
+import static com.jexpect.util.DataRepository.NULL_COLLECTION;
 import static org.junit.Assert.assertNotNull;
 
 public class ToBeCollectionNotTest {
