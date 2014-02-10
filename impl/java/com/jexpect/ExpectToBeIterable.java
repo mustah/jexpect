@@ -16,26 +16,15 @@ class ExpectToBeIterable<T> implements ToBeCollection<T> {
   }
 
   @Override
-  public void toContain(T item) {
-    if (!itemFound(item)) {
-      throw new IllegalArgumentException(String.format("Item <%s> was not found.", item));
+  public void toContain(T expected) {
+    if (!itemFoundIn(actual, expected)) {
+      throw new IllegalArgumentException(String.format("Item <%s> was not found.", expected));
     }
   }
 
   @Override
   public ToBeCollection<T> not() {
     return new ExpectedToBeIterableNot<T>(actual);
-  }
-
-  private boolean itemFound(T item) {
-    if (actual != null) {
-      for (T anActual : actual) {
-        if (anActual.equals(item)) {
-          return true;
-        }
-      }
-    }
-    return false;
   }
 
   private static class ExpectedToBeIterableNot<T> implements ToBeCollection<T> {
@@ -54,13 +43,26 @@ class ExpectToBeIterable<T> implements ToBeCollection<T> {
     }
 
     @Override
-    public void toContain(T item) {
-
+    public void toContain(T expected) {
+      if (itemFoundIn(actual, expected)) {
+        throw new IllegalArgumentException(String.format("Expected not to contain item <%s>, but was contained.", expected));
+      }
     }
 
     @Override
     public ToBeCollection<T> not() {
-      return null;
+      return new ExpectToBeIterable<T>(actual);
     }
+  }
+
+  private static <T> boolean itemFoundIn(Iterable<T> actual, T expected) {
+    if (actual != null) {
+      for (T item : actual) {
+        if (item.equals(expected)) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 }
