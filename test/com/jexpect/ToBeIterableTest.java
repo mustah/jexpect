@@ -51,4 +51,19 @@ public class ToBeIterableTest {
   public void Expected_To_Contain_Element_Should_Not_Fail_When_Actual_Element_Is_Contained_At_The_Tail_Of_Iterable() {
     expect(NON_EMPTY_ITERABLE).toContain(12);
   }
+
+  @Test
+  public void Non_Empty_Iterable_Is_Expected_Not_To_Be_Empty_Should_Pass() {
+    expect(NON_EMPTY_ITERABLE).not().toBeEmpty();
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void Empty_Iterable_Is_Expected_Not_To_Be_Empty_Should_Fail() {
+    expect(NULL_ITERABLE).not().toBeEmpty();
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void Empty_Iterable_Is_Expected_No_To_Be_Empty_Should_Fail() {
+    expect(EMPTY_ITERABLE).not().toBeEmpty();
+  }
 }

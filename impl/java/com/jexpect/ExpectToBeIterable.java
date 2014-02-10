@@ -24,7 +24,7 @@ class ExpectToBeIterable<T> implements ToBeCollection<T> {
 
   @Override
   public ToBeCollection<T> not() {
-    throw new IllegalArgumentException("Not yet fully implemented.");
+    return new ExpectedToBeIterableNot<T>(actual);
   }
 
   private boolean itemFound(T item) {
@@ -36,5 +36,31 @@ class ExpectToBeIterable<T> implements ToBeCollection<T> {
       }
     }
     return false;
+  }
+
+  private static class ExpectedToBeIterableNot<T> implements ToBeCollection<T> {
+
+    private final Iterable<T> actual;
+
+    private ExpectedToBeIterableNot(Iterable<T> actual) {
+      this.actual = actual;
+    }
+
+    @Override
+    public void toBeEmpty() {
+      if (actual == null || !actual.iterator().hasNext()) {
+        throw new IllegalArgumentException("Expected not to be empty, but was actually empty.");
+      }
+    }
+
+    @Override
+    public void toContain(T item) {
+
+    }
+
+    @Override
+    public ToBeCollection<T> not() {
+      return null;
+    }
   }
 }

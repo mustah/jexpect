@@ -55,10 +55,10 @@ public class ToBeIterableTest {
 
   @Test
   public void NotUseCaseIsNotImplementedYet() throws Exception {
-    assertEquals("Not yet fully implemented.", getExceptionMessage(new Command() {
+    assertEquals("Expected not to be empty, but was actually empty.", getExceptionMessage(new Command() {
       @Override
       public void execute() {
-        expect(NON_EMPTY_ITERABLE).not().toBeEmpty();
+        expect(NULL_ITERABLE).not().toBeEmpty();
       }
     }));
   }
