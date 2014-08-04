@@ -26,7 +26,7 @@ class ExpectToBeCollection<T> implements ToBeCollection<T> {
 
   @Override
   public ToBeCollection<T> not() {
-    return new ExpectToBeCollectionNot<T>(collection);
+    return new ExpectToBeCollectionNot<>(collection);
   }
 
   private static class ExpectToBeCollectionNot<T> implements ToBeCollection<T> {
@@ -53,7 +53,7 @@ class ExpectToBeCollection<T> implements ToBeCollection<T> {
 
     @Override
     public ToBeCollection<T> not() {
-      return new ExpectToBeCollection<T>(collection);
+      return new ExpectToBeCollection<>(collection);
     }
   }
 }

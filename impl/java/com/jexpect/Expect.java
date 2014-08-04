@@ -45,26 +45,26 @@ public final class Expect {
   }
 
   public static ToBeNumber<Integer> expect(int actual) {
-    return new ExpectToBeNumber<Integer>(actual, INTEGER_COMPARATOR);
+    return new ExpectToBeNumber<>(actual, INTEGER_COMPARATOR);
   }
 
   public static ToBeNumber<Float> expect(float actual) {
-    return new ExpectToBeNumber<Float>(actual, FLOAT_COMPARATOR);
+    return new ExpectToBeNumber<>(actual, FLOAT_COMPARATOR);
   }
 
   public static ToBeNumber<Double> expect(double actual) {
-    return new ExpectToBeNumber<Double>(actual, DOUBLE_COMPARATOR);
+    return new ExpectToBeNumber<>(actual, DOUBLE_COMPARATOR);
   }
 
   public static ToBeNumber<Long> expect(long actual) {
-    return new ExpectToBeNumber<Long>(actual, LONG_COMPARATOR);
+    return new ExpectToBeNumber<>(actual, LONG_COMPARATOR);
   }
 
   public static <T> ToBeCollection<T> expect(Collection<T> actual) {
-    return new ExpectToBeCollection<T>(actual);
+    return new ExpectToBeCollection<>(actual);
   }
 
   public static <T> ToBeCollection<T> expect(Iterable<T> actual) {
-    return new ExpectToBeIterable<T>(actual);
+    return new ExpectToBeIterable<>(actual);
   }
 }

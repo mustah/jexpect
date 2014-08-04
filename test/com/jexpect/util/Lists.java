@@ -13,7 +13,7 @@ public final class Lists {
   }
 
   public static <E> List<E> newArrayList(E... elements) {
-    List<E> list = new ArrayList<E>();
+    List<E> list = new ArrayList<>();
     if (elements != null) {
       Collections.addAll(list, elements);
     }

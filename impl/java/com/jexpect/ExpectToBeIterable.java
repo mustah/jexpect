@@ -24,7 +24,7 @@ class ExpectToBeIterable<T> implements ToBeCollection<T> {
 
   @Override
   public ToBeCollection<T> not() {
-    return new ExpectedToBeIterableNot<T>(actual);
+    return new ExpectedToBeIterableNot<>(actual);
   }
 
   private static class ExpectedToBeIterableNot<T> implements ToBeCollection<T> {
@@ -51,7 +51,7 @@ class ExpectToBeIterable<T> implements ToBeCollection<T> {
 
     @Override
     public ToBeCollection<T> not() {
-      return new ExpectToBeIterable<T>(actual);
+      return new ExpectToBeIterable<>(actual);
     }
   }
 

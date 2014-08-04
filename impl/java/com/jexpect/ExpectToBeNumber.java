@@ -49,7 +49,7 @@ class ExpectToBeNumber<N extends Number & Comparable<? super N>> implements ToBe
 
   @Override
   public ToBeNumber<N> not() {
-    return new ExpectToBeNumberNot<N>(actual, comparator);
+    return new ExpectToBeNumberNot<>(actual, comparator);
   }
 
   private static class ExpectToBeNumberNot<N extends Number & Comparable<? super N>> implements ToBeNumber<N> {
@@ -99,7 +99,7 @@ class ExpectToBeNumber<N extends Number & Comparable<? super N>> implements ToBe
 
     @Override
     public ToBeNumber<N> not() {
-      return new ExpectToBeNumber<N>(actual, comparator);
+      return new ExpectToBeNumber<>(actual, comparator);
     }
   }
 }
