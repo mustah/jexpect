@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Comparator;
 
 import com.jexpect.util.CollectionMatcher;
+import com.jexpect.util.IterableMatcher;
 
 public final class Expect {
 
@@ -67,6 +68,6 @@ public final class Expect {
   }
 
   public static <T> ToBeCollection<T> expect(Iterable<T> actual) {
-    return new ExpectToBeIterable<>(actual);
+    return new ExpectToBeIterable<>(new IterableMatcher<>(actual));
   }
 }
