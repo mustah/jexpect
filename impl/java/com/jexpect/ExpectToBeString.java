@@ -1,5 +1,7 @@
 package com.jexpect;
 
+import static com.jexpect.Exceptions.throwNewIllegalArgumentExceptionForNot;
+
 class ExpectToBeString implements ToBeString {
 
   private final StringMatcher matcher;
@@ -45,21 +47,21 @@ class ExpectToBeString implements ToBeString {
     @Override
     public void toBeNull() {
       if (matcher.isNull()) {
-        Exceptions.throwNewIllegalArgumentExceptionForNot(null, null);
+        throwNewIllegalArgumentExceptionForNot(null, null);
       }
     }
 
     @Override
     public void toBeEmpty() {
       if (matcher.isEmpty()) {
-        Exceptions.throwNewIllegalArgumentExceptionForNot("", "");
+        throwNewIllegalArgumentExceptionForNot("", "");
       }
     }
 
     @Override
     public void toBe(String expected) {
       if (matcher.isEqualTo(expected)) {
-        Exceptions.throwNewIllegalArgumentExceptionForNot(expected, matcher.getActual());
+        throwNewIllegalArgumentExceptionForNot(expected, matcher.getActual());
       }
     }
 

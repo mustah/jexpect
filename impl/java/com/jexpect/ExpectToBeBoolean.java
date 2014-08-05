@@ -1,5 +1,7 @@
 package com.jexpect;
 
+import static com.jexpect.Exceptions.throwNewIllegalArgumentException;
+
 class ExpectToBeBoolean implements ToBeBoolean {
 
   private final boolean actual;
@@ -11,19 +13,19 @@ class ExpectToBeBoolean implements ToBeBoolean {
   @Override
   public void toBeTrue() {
     if (!actual)
-      Exceptions.throwNewIllegalArgumentException(true, actual);
+      throwNewIllegalArgumentException(true, actual);
   }
 
   @Override
   public void toBeFalse() {
     if (actual)
-      Exceptions.throwNewIllegalArgumentException(false, actual);
+      throwNewIllegalArgumentException(false, actual);
   }
 
   @Override
   public void toBe(Boolean expected) {
     if (expected == null || actual != expected)
-      Exceptions.throwNewIllegalArgumentException(expected, actual);
+      throwNewIllegalArgumentException(expected, actual);
   }
 
   @Override
