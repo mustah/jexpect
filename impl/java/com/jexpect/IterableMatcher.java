@@ -16,14 +16,14 @@ class IterableMatcher<T> {
     return !isEmpty();
   }
 
-  boolean containsNot(T expected) {
-    return !contains(expected);
+  boolean containsNot(T item) {
+    return !contains(item);
   }
 
-  boolean contains(T expected) {
+  boolean contains(T item) {
     if (iterable != null) {
-      for (T item : iterable) {
-        if (item.equals(expected)) {
+      for (T t : iterable) {
+        if (t.equals(item)) {
           return true;
         }
       }
