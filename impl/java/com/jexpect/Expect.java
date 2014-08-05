@@ -5,6 +5,7 @@ import java.util.Comparator;
 
 import com.jexpect.util.CollectionMatcher;
 import com.jexpect.util.IterableMatcher;
+import com.jexpect.util.StringMatcher;
 
 public final class Expect {
 
@@ -40,7 +41,7 @@ public final class Expect {
   };
 
   public static ToBeString expect(String actual) {
-    return new ExpectToBeString(actual);
+    return new ExpectToBeString(new StringMatcher(actual));
   }
 
   public static ToBeBoolean expect(boolean actual) {

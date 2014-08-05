@@ -1,71 +1,73 @@
 package com.jexpect;
 
+import com.jexpect.util.StringMatcher;
+
 class ExpectToBeString implements ToBeString {
 
-  private final String actual;
+  private final StringMatcher matcher;
 
-  ExpectToBeString(String actual) {
-    this.actual = actual;
+  ExpectToBeString(StringMatcher matcher) {
+    this.matcher = matcher;
   }
 
   @Override
   public void toBe(String expected) {
-    if (actual == null || !actual.equals(expected)) {
-      throw new IllegalArgumentException(String.format("Expected to be <%s>, but found: <%s>", expected, actual));
+    if (matcher.isNotEqualTo(expected)) {
+      throw new IllegalArgumentException(String.format("Expected to be <%s>, but found: <%s>", expected, matcher.getActual()));
     }
   }
 
   @Override
   public void toBeNull() {
-    if (actual != null) {
-      throw new IllegalArgumentException(String.format("Expected to be <%s>, but found: <%s>", "null", actual));
+    if (matcher.isNotNull()) {
+      throw new IllegalArgumentException(String.format("Expected to be <%s>, but found: <%s>", "null", matcher.getActual()));
     }
   }
 
   @Override
   public void toBeEmpty() {
-    if (actual == null || !actual.isEmpty()) {
-      throw new IllegalArgumentException(String.format("Expected to be <%s>, but found: <%s>", "", actual));
+    if (matcher.isNotEmpty()) {
+      throw new IllegalArgumentException(String.format("Expected to be <%s>, but found: <%s>", "", matcher.getActual()));
     }
   }
 
   @Override
   public ToBeString not() {
-    return new ExpectToBeStringNot(actual);
+    return new ExpectToBeStringNot(matcher);
   }
 
   private static class ExpectToBeStringNot implements ToBeString {
 
-    private final String actual;
+    private final StringMatcher matcher;
 
-    private ExpectToBeStringNot(String actual) {
-      this.actual = actual;
+    private ExpectToBeStringNot(StringMatcher matcher) {
+      this.matcher = matcher;
     }
 
     @Override
     public void toBeNull() {
-      if (actual == null) {
+      if (matcher.isNull()) {
         Exceptions.throwNewIllegalArgumentExceptionForNot(null, null);
       }
     }
 
     @Override
     public void toBeEmpty() {
-      if (actual != null && actual.isEmpty()) {
+      if (matcher.isEmpty()) {
         Exceptions.throwNewIllegalArgumentExceptionForNot("", "");
       }
     }
 
     @Override
     public void toBe(String expected) {
-      if (actual != null && actual.equals(expected)) {
-        Exceptions.throwNewIllegalArgumentExceptionForNot(expected, actual);
+      if (matcher.isEqualTo(expected)) {
+        Exceptions.throwNewIllegalArgumentExceptionForNot(expected, matcher.getActual());
       }
     }
 
     @Override
     public ToBeString not() {
-      return new ExpectToBeString(actual);
+      return new ExpectToBeString(matcher);
     }
   }
 }
