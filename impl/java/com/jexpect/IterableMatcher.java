@@ -1,26 +1,26 @@
-package com.jexpect.util;
+package com.jexpect;
 
-public class IterableMatcher<T> {
+class IterableMatcher<T> {
 
   private final Iterable<T> iterable;
 
-  public IterableMatcher(Iterable<T> iterable) {
+  IterableMatcher(Iterable<T> iterable) {
     this.iterable = iterable;
   }
 
-  public boolean isEmpty() {
+  boolean isEmpty() {
     return iterable == null || !iterable.iterator().hasNext();
   }
 
-  public boolean isNotEmpty() {
+  boolean isNotEmpty() {
     return !isEmpty();
   }
 
-  public boolean containsNot(T expected) {
+  boolean containsNot(T expected) {
     return !contains(expected);
   }
 
-  public boolean contains(T expected) {
+  boolean contains(T expected) {
     if (iterable != null) {
       for (T item : iterable) {
         if (item.equals(expected)) {

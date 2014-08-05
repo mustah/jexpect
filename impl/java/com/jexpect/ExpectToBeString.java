@@ -1,7 +1,5 @@
 package com.jexpect;
 
-import com.jexpect.util.StringMatcher;
-
 class ExpectToBeString implements ToBeString {
 
   private final StringMatcher matcher;

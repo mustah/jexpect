@@ -1,28 +1,28 @@
-package com.jexpect.util;
+package com.jexpect;
 
 import java.util.Collection;
 
-public class CollectionMatcher<T> {
+class CollectionMatcher<T> {
 
   private final Collection<T> collection;
 
-  public CollectionMatcher(Collection<T> collection) {
+  CollectionMatcher(Collection<T> collection) {
     this.collection = collection;
   }
 
-  public boolean isEmpty() {
+  boolean isEmpty() {
     return collection == null || collection.isEmpty();
   }
 
-  public boolean isNotEmpty() {
+  boolean isNotEmpty() {
     return !isEmpty();
   }
 
-  public boolean contains(T item) {
+  boolean contains(T item) {
     return collection != null && collection.contains(item);
   }
 
-  public boolean containsNot(T item) {
+  boolean containsNot(T item) {
     return !contains(item);
   }
 }

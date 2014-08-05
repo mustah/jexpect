@@ -1,7 +1,5 @@
 package com.jexpect;
 
-import com.jexpect.util.IterableMatcher;
-
 class ExpectToBeIterable<T> implements ToBeCollection<T> {
 
   private final IterableMatcher<T> matcher;

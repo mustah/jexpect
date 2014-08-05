@@ -1,7 +1,5 @@
 package com.jexpect;
 
-import com.jexpect.util.CollectionMatcher;
-
 class ExpectToBeCollection<T> implements ToBeCollection<T> {
 
   private final CollectionMatcher<T> matcher;

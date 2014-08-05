@@ -3,10 +3,6 @@ package com.jexpect;
 import java.util.Collection;
 import java.util.Comparator;
 
-import com.jexpect.util.CollectionMatcher;
-import com.jexpect.util.IterableMatcher;
-import com.jexpect.util.StringMatcher;
-
 public final class Expect {
 
   private Expect() {
