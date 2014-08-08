@@ -11,14 +11,14 @@ class ExpectToBeCollection<T> implements ToBeCollection<T> {
   @Override
   public void toBeEmpty() {
     if (matcher.isNotEmpty()) {
-      throw new IllegalArgumentException(String.format("Expected collection to be empty, but found <%s>", matcher.getCollection()));
+      throw new IllegalArgumentException(String.format("Expected collection to be empty, but found <%s>.", matcher.getCollection()));
     }
   }
 
   @Override
   public void toContain(T expected) {
     if (matcher.containsNot(expected)) {
-      throw new IllegalArgumentException(String.format("Expected collection does not contain item: <%s>", expected));
+      throw new IllegalArgumentException(String.format("Expected collection does not contain item: <%s>.", expected));
     }
   }
 
@@ -38,14 +38,14 @@ class ExpectToBeCollection<T> implements ToBeCollection<T> {
     @Override
     public void toBeEmpty() {
       if (matcher.isEmpty()) {
-        throw new IllegalArgumentException(String.format("Expected collection not to be empty, but found <%s>", matcher.getCollection()));
+        throw new IllegalArgumentException(String.format("Expected collection not to be empty, but found <%s>.", matcher.getCollection()));
       }
     }
 
     @Override
     public void toContain(T expected) {
       if (matcher.contains(expected)) {
-        throw new IllegalArgumentException(String.format("Expected collection not to contain item: <%s>", expected));
+        throw new IllegalArgumentException(String.format("Expected collection not to contain item <%s>, but was contained.", expected));
       }
     }
 
