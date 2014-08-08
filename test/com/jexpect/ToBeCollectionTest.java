@@ -11,17 +11,9 @@ import static com.jexpect.util.DataRepository.NULL_COLLECTION;
 public class ToBeCollectionTest {
 
   @Test
-  public void Given_Empty_Collection_Then_Expect_To_Be_Empty_Should_Not_Fail() throws Exception {
+  public void Expect_Should_Not_Throw_Exception() throws Exception {
     expect(Collections.<Integer>emptyList()).toBeEmpty();
-  }
-
-  @Test
-  public void Given_Null_Collection_When_Expect_To_Be_Empty_Should_Not_Fail() throws Exception {
     expect(NULL_COLLECTION).toBeEmpty();
-  }
-
-  @Test
-  public void Given_Non_Empty_Collection_When_Expect_To_Contain_Item_Should_Not_Fail() throws Exception {
     expect(NON_EMPTY_COLLECTION).toContain(5);
   }
 

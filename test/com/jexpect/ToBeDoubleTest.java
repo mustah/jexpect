@@ -7,8 +7,10 @@ import static com.jexpect.Expect.expect;
 public class ToBeDoubleTest {
 
   @Test
-  public void To_Be_Actual() throws Exception {
-    expect(10d).toBe(10d);
+  public void Expect_Should_Not_Throw_Exception() throws Exception {
+    expect(3d).toBe(3d);
+    expect(6d).toBeGreaterThan(3d);
+    expect(1d).toBeLessThan(9d);
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -21,24 +23,13 @@ public class ToBeDoubleTest {
     expect(10d).toBe(null);
   }
 
-  @Test
-  public void To_Be_Less_Than() throws Exception {
-    expect(1d).toBeLessThan(9d);
-  }
-
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_Less_Than_Fail() throws Exception {
     expect(11d).toBeLessThan(9d);
-  }
-
-  @Test
-  public void To_Be_Greater_Than() throws Exception {
-    expect(11d).toBeGreaterThan(9d);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void To_Be_Greater_Than_Fail() throws Exception {
     expect(1d).toBeGreaterThan(9d);
   }
-
 }
