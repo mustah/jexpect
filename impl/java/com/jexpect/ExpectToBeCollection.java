@@ -11,7 +11,7 @@ class ExpectToBeCollection<T> implements ToBeCollection<T> {
   @Override
   public void toBeEmpty() {
     if (matcher.isNotEmpty()) {
-      throw new IllegalArgumentException("Expected collection to be empty");
+      throw new IllegalArgumentException(String.format("Expected collection to be empty, but found <%s>", matcher.getCollection()));
     }
   }
 
@@ -38,7 +38,7 @@ class ExpectToBeCollection<T> implements ToBeCollection<T> {
     @Override
     public void toBeEmpty() {
       if (matcher.isEmpty()) {
-        throw new IllegalArgumentException("Expected collection not to be empty");
+        throw new IllegalArgumentException(String.format("Expected collection not to be empty, but found <%s>", matcher.getCollection()));
       }
     }
 

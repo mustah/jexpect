@@ -14,10 +14,6 @@ public class ToBeStringNotTest {
     expect("s").not().toBeEmpty();
     expect("a").not().toBe("b");
     expect("a").not().toBe(null);
-  }
-
-  @Test
-  public void Given_Any_String_Then_Consecutive_Expect_Not_Not_Functions_Should_Be_Same_As_Expected() throws Exception {
     expect("foo").not().not().toBe("foo");
   }
 

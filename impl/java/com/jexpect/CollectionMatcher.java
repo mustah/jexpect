@@ -10,6 +10,10 @@ class CollectionMatcher<T> {
     this.collection = collection;
   }
 
+  Collection<T> getCollection() {
+    return collection;
+  }
+
   boolean isEmpty() {
     return collection == null || collection.isEmpty();
   }

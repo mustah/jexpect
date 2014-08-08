@@ -16,14 +16,14 @@ public class ToBeCollectionNotTest {
 
   @Test
   public void Given_Empty_Or_Null_Collection_When_Expect_Not_To_Contain_Item_Should_Fail_And_Have_Error_Message() throws Exception {
-    assertEquals("Expected collection not to be empty", getExceptionMessage(new Command() {
+    assertEquals("Expected collection not to be empty, but found <[]>", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(Collections.<Integer>emptyList()).not().toBeEmpty();
       }
     }));
 
-    assertEquals("Expected collection not to be empty", getExceptionMessage(new Command() {
+    assertEquals("Expected collection not to be empty, but found <null>", getExceptionMessage(new Command() {
       @Override
       public void execute() {
         expect(NULL_COLLECTION).not().toBeEmpty();
