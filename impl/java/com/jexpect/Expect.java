@@ -36,28 +36,28 @@ public final class Expect {
     }
   };
 
-  public static ToBeString expect(String actual) {
-    return new ExpectToBeString(new StringMatcher(actual));
-  }
-
   public static ToBeBoolean expect(boolean actual) {
     return new ExpectToBeBoolean(actual);
   }
 
+  public static ToBeString expect(String actual) {
+    return new ExpectToBeString(new StringMatcher(actual));
+  }
+
   public static ToBeNumber<Integer> expect(int actual) {
-    return new ExpectToBeNumber<>(actual, INTEGER_COMPARATOR);
+    return new ExpectToBeNumber<>(new NumberMatcher<>(actual, INTEGER_COMPARATOR));
   }
 
   public static ToBeNumber<Float> expect(float actual) {
-    return new ExpectToBeNumber<>(actual, FLOAT_COMPARATOR);
+    return new ExpectToBeNumber<>(new NumberMatcher<>(actual, FLOAT_COMPARATOR));
   }
 
   public static ToBeNumber<Double> expect(double actual) {
-    return new ExpectToBeNumber<>(actual, DOUBLE_COMPARATOR);
+    return new ExpectToBeNumber<>(new NumberMatcher<>(actual, DOUBLE_COMPARATOR));
   }
 
   public static ToBeNumber<Long> expect(long actual) {
-    return new ExpectToBeNumber<>(actual, LONG_COMPARATOR);
+    return new ExpectToBeNumber<>(new NumberMatcher<>(actual, LONG_COMPARATOR));
   }
 
   public static <T> ToBeCollection<T> expect(Collection<T> actual) {

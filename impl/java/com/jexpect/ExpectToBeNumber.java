@@ -1,107 +1,101 @@
 package com.jexpect;
 
-import java.util.Comparator;
-
 import static com.jexpect.Exceptions.throwNewIllegalArgumentException;
 
 class ExpectToBeNumber<N extends Number & Comparable<? super N>> implements ToBeNumber<N> {
 
-  private final N actual;
-  private final Comparator<N> comparator;
+  private final NumberMatcher<N> matcher;
 
-  ExpectToBeNumber(N actual, Comparator<N> comparator) {
-    this.actual = actual;
-    this.comparator = comparator;
+  ExpectToBeNumber(NumberMatcher<N> matcher) {
+    this.matcher = matcher;
   }
 
   @Override
   public void toBe(N expected) {
-    if (!actual.equals(expected)) {
-      throwNewIllegalArgumentException(actual, "==", expected);
+    if (matcher.isNotEqual(expected)) {
+      throwNewIllegalArgumentException(matcher.getActual(), "==", expected);
     }
   }
 
   @Override
   public void toBeLessThan(N expected) {
-    if (expected == null || comparator.compare(actual, expected) >= 0) {
-      throwNewIllegalArgumentException(actual, "<", expected);
+    if (matcher.isGreaterThanOrEqual(expected)) {
+      throwNewIllegalArgumentException(matcher.getActual(), "<", expected);
     }
   }
 
   @Override
   public void toBeLessThanOrEqual(N expected) {
-    if (expected == null || comparator.compare(actual, expected) > 0) {
-      throwNewIllegalArgumentException(actual, "<=", expected);
+    if (matcher.isGreaterThan(expected)) {
+      throwNewIllegalArgumentException(matcher.getActual(), "<=", expected);
     }
   }
 
   @Override
   public void toBeGreaterThan(N expected) {
-    if (expected == null || comparator.compare(actual, expected) <= 0) {
-      throwNewIllegalArgumentException(actual, ">", expected);
+    if (matcher.isLessThanOrEqual(expected)) {
+      throwNewIllegalArgumentException(matcher.getActual(), ">", expected);
     }
   }
 
   @Override
   public void toBeGreaterThanOrEqual(N expected) {
-    if (expected == null || comparator.compare(actual, expected) < 0) {
-      throwNewIllegalArgumentException(actual, ">=", expected);
+    if (matcher.isLessThan(expected)) {
+      throwNewIllegalArgumentException(matcher.getActual(), ">=", expected);
     }
   }
 
   @Override
   public ToBeNumber<N> not() {
-    return new ExpectToBeNumberNot<>(actual, comparator);
+    return new ExpectToBeNumberNot<>(matcher);
   }
 
   private static class ExpectToBeNumberNot<N extends Number & Comparable<? super N>> implements ToBeNumber<N> {
 
-    private final N actual;
-    private final Comparator<N> comparator;
+    private final NumberMatcher<N> matcher;
 
-    private ExpectToBeNumberNot(N actual, Comparator<N> comparator) {
-      this.actual = actual;
-      this.comparator = comparator;
+    private ExpectToBeNumberNot(NumberMatcher<N> matcher) {
+      this.matcher = matcher;
     }
 
     @Override
     public void toBe(N expected) {
-      if (expected == null || comparator.compare(actual, expected) == 0) {
-        throwNewIllegalArgumentException(actual, "not to be", expected);
+      if (matcher.isEqual(expected)) {
+        throwNewIllegalArgumentException(matcher.getActual(), "not to be", expected);
       }
     }
 
     @Override
     public void toBeLessThan(N expected) {
-      if (expected == null || comparator.compare(actual, expected) < 0) {
-        throwNewIllegalArgumentException(actual, "not to be <", expected);
+      if (matcher.isLessThan(expected)) {
+        throwNewIllegalArgumentException(matcher.getActual(), "not to be <", expected);
       }
     }
 
     @Override
     public void toBeLessThanOrEqual(N expected) {
-      if (expected == null || comparator.compare(actual, expected) < 0) {
-        throwNewIllegalArgumentException(actual, "not to be <=", expected);
+      if (matcher.isLessThan(expected)) {
+        throwNewIllegalArgumentException(matcher.getActual(), "not to be <=", expected);
       }
     }
 
     @Override
     public void toBeGreaterThan(N expected) {
-      if (expected == null || comparator.compare(actual, expected) > 0) {
-        throwNewIllegalArgumentException(actual, "not to be >", expected);
+      if (matcher.isGreaterThan(expected)) {
+        throwNewIllegalArgumentException(matcher.getActual(), "not to be >", expected);
       }
     }
 
     @Override
     public void toBeGreaterThanOrEqual(N expected) {
-      if (expected == null || comparator.compare(actual, expected) >= 0) {
-        throwNewIllegalArgumentException(actual, "not to be >=", expected);
+      if (matcher.isGreaterThanOrEqual(expected)) {
+        throwNewIllegalArgumentException(matcher.getActual(), "not to be >=", expected);
       }
     }
 
     @Override
     public ToBeNumber<N> not() {
-      return new ExpectToBeNumber<>(actual, comparator);
+      return new ExpectToBeNumber<>(matcher);
     }
   }
 }
