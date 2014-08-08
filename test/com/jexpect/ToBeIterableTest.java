@@ -13,23 +13,21 @@ import static com.jexpect.util.DataRepository.NULL_ITERABLE;
 public class ToBeIterableTest {
 
   @Test
-  public void Expected_To_Be_Empty_Should_Pass_When_Actual_Iterable_Is_Null() {
+  public void Expect_Should_Not_Throw_Exception() {
     expect(NULL_ITERABLE).toBeEmpty();
-  }
-
-  @Test
-  public void Expected_To_Be_Empty_Should_Pass_When_Actual_Iterable_Is_Empty() {
     expect(EMPTY_ITERABLE).toBeEmpty();
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void Expected_To_Be_Empty_Should_Fail_When_Iterable_Is_Containing_Elements() {
-    expect(NON_EMPTY_ITERABLE).toBeEmpty();
+    expect(NON_EMPTY_ITERABLE).toContain(3);
+    expect(NON_EMPTY_ITERABLE).toContain(12);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void Expected_To_Contain_Element_Should_Fail_When_Actual_Iterable_Is_Null() {
     expect(NULL_ITERABLE).toContain(3);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void Expected_To_Be_Empty_Should_Fail_When_Iterable_Is_Containing_Elements() {
+    expect(NON_EMPTY_ITERABLE).toBeEmpty();
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -40,50 +38,5 @@ public class ToBeIterableTest {
   @Test(expected = IllegalArgumentException.class)
   public void Expected_To_Contain_Element_Should_Fail_When_Actual_Element_Is_Not_Contained() {
     expect(NON_EMPTY_ITERABLE).toContain(1);
-  }
-
-  @Test
-  public void Expected_To_Contain_Element_Should_Not_Fail_When_Actual_Element_Is_Contained() {
-    expect(NON_EMPTY_ITERABLE).toContain(3);
-  }
-
-  @Test
-  public void Expected_To_Contain_Element_Should_Not_Fail_When_Actual_Element_Is_Contained_At_The_Tail_Of_Iterable() {
-    expect(NON_EMPTY_ITERABLE).toContain(12);
-  }
-
-  @Test
-  public void Non_Empty_Iterable_Is_Expected_Not_To_Be_Empty_Should_Pass() {
-    expect(NON_EMPTY_ITERABLE).not().toBeEmpty();
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void Empty_Iterable_Is_Expected_Not_To_Be_Empty_Should_Fail() {
-    expect(NULL_ITERABLE).not().toBeEmpty();
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void Empty_Iterable_Is_Expected_No_To_Be_Empty_Should_Fail() {
-    expect(EMPTY_ITERABLE).not().toBeEmpty();
-  }
-
-  @Test
-  public void Expected_Empty_Iterable_Not_Not_To_Be_Empty_Should_Pass() {
-    expect(EMPTY_ITERABLE).not().not().toBeEmpty();
-  }
-
-  @Test
-  public void Expected_Null_Iterable_Not_Not_To_Be_Empty_Should_Pass() {
-    expect(NULL_ITERABLE).not().not().toBeEmpty();
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void Expected_Non_Empty_Iterable_Not_Not_To_Be_Empty_Should_Fail() {
-    expect(NON_EMPTY_ITERABLE).not().not().toBeEmpty();
-  }
-
-  @Test
-  public void Expected_Non_Empty_Iterable_Not_Not_To_Contain_Item_Should_Pass() {
-    expect(NON_EMPTY_ITERABLE).not().not().toContain(12);
   }
 }
