@@ -13,6 +13,7 @@ import static com.jexpect.util.ExceptionHandler.getExceptionMessage;
 import static junit.framework.Assert.assertEquals;
 
 public class ToBeCollectionTest {
+
   @Test
   public void Given_Non_Empty_Collection_When_Expect_To_Be_Empty_Should_Fail_And_Have_Error_Message() throws Exception {
     assertEquals("Expected collection to be empty, but found <[3, 5, 10]>.", getExceptionMessage(new Command() {
@@ -39,6 +40,27 @@ public class ToBeCollectionTest {
       @Override
       public void execute() {
         expect(NULL_COLLECTION).toContain(5);
+      }
+    }));
+  }
+
+  @Test
+  public void Given_Null_Collection_When_Expect_To_Have_Size_Should_Fail_And_Have_Error_Message() throws Exception {
+    assertEquals("Expected collection to have size: <5>, but actual size is <null>.", getExceptionMessage(new Command() {
+      @Override
+      public void execute() {
+        expect(NULL_COLLECTION).toHaveSize(5);
+      }
+    }));
+  }
+
+  @Test
+  public void Given_None_Empty_Collection_When_Expect_To_Have_Size_Should_Fail_And_Have_Error_Message()
+    throws Exception {
+    assertEquals("Expected collection to have size: <5>, but actual size is <3>.", getExceptionMessage(new Command() {
+      @Override
+      public void execute() {
+        expect(NON_EMPTY_COLLECTION).toHaveSize(5);
       }
     }));
   }

@@ -15,7 +15,8 @@ import static junit.framework.Assert.assertEquals;
 public class ToBeCollectionNotTest {
 
   @Test
-  public void Given_Empty_Or_Null_Collection_When_Expect_Not_To_Contain_Item_Should_Fail_And_Have_Error_Message() throws Exception {
+  public void Given_Empty_Or_Null_Collection_When_Expect_Not_To_Contain_Item_Should_Fail_And_Have_Error_Message()
+    throws Exception {
     assertEquals("Expected collection not to be empty, but found <[]>.", getExceptionMessage(new Command() {
       @Override
       public void execute() {
@@ -37,6 +38,17 @@ public class ToBeCollectionNotTest {
       @Override
       public void execute() {
         expect(NON_EMPTY_COLLECTION).not().toContain(10);
+      }
+    }));
+  }
+
+  @Test
+  public void Given_None_Empty_Collection_When_Expect_Not_To_Have_Size_Should_Fail_And_Have_Error_Message()
+    throws Exception {
+    assertEquals("Expected collection not to have size: <3>, but actual size was <3>.", getExceptionMessage(new Command() {
+      @Override
+      public void execute() {
+        expect(NON_EMPTY_COLLECTION).not().toHaveSize(3);
       }
     }));
   }

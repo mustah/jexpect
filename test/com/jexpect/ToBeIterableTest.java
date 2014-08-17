@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static com.jexpect.Expect.expect;
 import static com.jexpect.util.DataRepository.EMPTY_ITERABLE;
+import static com.jexpect.util.DataRepository.NON_EMPTY_COLLECTION;
 import static com.jexpect.util.DataRepository.NON_EMPTY_ITERABLE;
 import static com.jexpect.util.DataRepository.NULL_ITERABLE;
 
@@ -18,6 +19,7 @@ public class ToBeIterableTest {
     expect(EMPTY_ITERABLE).toBeEmpty();
     expect(NON_EMPTY_ITERABLE).toContain(3);
     expect(NON_EMPTY_ITERABLE).toContain(12);
+    expect(NON_EMPTY_COLLECTION).toHaveSize(3);
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -38,5 +40,10 @@ public class ToBeIterableTest {
   @Test(expected = IllegalArgumentException.class)
   public void Expected_To_Contain_Element_Should_Fail_When_Actual_Element_Is_Not_Contained() {
     expect(NON_EMPTY_ITERABLE).toContain(1);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void Expect_To_Have_Size_Should_Fail_When_Size_Is_Not_The_Same() {
+    expect(NON_EMPTY_ITERABLE).toHaveSize(11);
   }
 }

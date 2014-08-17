@@ -12,8 +12,10 @@ import static com.jexpect.util.ExceptionHandler.getExceptionMessage;
 import static org.junit.Assert.assertEquals;
 
 public class ToBeIterableNotTest {
+
   @Test
-  public void When_Null_Iterable_Is_Expected_Not_To_Be_Empty_Should_Fail_And_Exception_Should_Have_Error_Message() throws Exception {
+  public void When_Null_Iterable_Is_Expected_Not_To_Be_Empty_Should_Fail_And_Exception_Should_Have_Error_Message()
+    throws Exception {
     assertEquals("Expected not to be empty, but was actually empty.", getExceptionMessage(new Command() {
       @Override
       public void execute() {
@@ -23,7 +25,8 @@ public class ToBeIterableNotTest {
   }
 
   @Test
-  public void When_Empty_Iterable_Is_Expected_Not_To_Be_Empty_Should_Fail_And_Exception_Should_Have_Error_Message() throws Exception {
+  public void When_Empty_Iterable_Is_Expected_Not_To_Be_Empty_Should_Fail_And_Exception_Should_Have_Error_Message()
+    throws Exception {
     assertEquals("Expected not to be empty, but was actually empty.", getExceptionMessage(new Command() {
       @Override
       public void execute() {
@@ -33,7 +36,8 @@ public class ToBeIterableNotTest {
   }
 
   @Test
-  public void When_Iterable_Is_Expected_Not_To_Contain_Item_Fails_Then_Exception_Should_Have_Error_Message() throws Exception {
+  public void When_Iterable_Is_Expected_Not_To_Contain_Item_Fails_Then_Exception_Should_Have_Error_Message()
+    throws Exception {
     assertEquals("Expected not to contain item <10>, but was contained.", getExceptionMessage(new Command() {
       @Override
       public void execute() {
@@ -45,6 +49,17 @@ public class ToBeIterableNotTest {
       @Override
       public void execute() {
         expect(NON_EMPTY_ITERABLE).not().toContain(12);
+      }
+    }));
+  }
+
+  @Test
+  public void Given_None_Empty_Iterable_When_Expect_Not_To_Have_Size_Should_Fail_And_Have_Error_Message()
+    throws Exception {
+    assertEquals("Expected iterable not to have size: <3>, but actual size was <3>.", getExceptionMessage(new Command() {
+      @Override
+      public void execute() {
+        expect(NON_EMPTY_ITERABLE).not().toHaveSize(3);
       }
     }));
   }

@@ -10,8 +10,20 @@ class CollectionMatcher<T> {
     this.collection = collection;
   }
 
+  Integer getSizeOfCollection() {
+    return collection != null ? collection.size() : null;
+  }
+
   Collection<T> getCollection() {
     return collection;
+  }
+
+  boolean hasSize(int expected) {
+    return collection != null && collection.size() == expected;
+  }
+
+  boolean hasNotSize(int expected) {
+    return !hasSize(expected);
   }
 
   boolean isEmpty() {

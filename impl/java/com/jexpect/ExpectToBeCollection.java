@@ -23,6 +23,13 @@ class ExpectToBeCollection<T> implements ToBeCollection<T> {
   }
 
   @Override
+  public void toHaveSize(int expected) {
+    if (matcher.hasNotSize(expected)) {
+      throw new IllegalArgumentException(String.format("Expected collection to have size: <%s>, but actual size is <%s>.", expected, matcher.getSizeOfCollection()));
+    }
+  }
+
+  @Override
   public ToBeCollection<T> not() {
     return new ExpectToBeCollectionNot<>(matcher);
   }
@@ -46,6 +53,13 @@ class ExpectToBeCollection<T> implements ToBeCollection<T> {
     public void toContain(T expected) {
       if (matcher.contains(expected)) {
         throw new IllegalArgumentException(String.format("Expected collection not to contain item <%s>, but was contained.", expected));
+      }
+    }
+
+    @Override
+    public void toHaveSize(int expected) {
+      if (matcher.hasSize(expected)) {
+        throw new IllegalArgumentException(String.format("Expected collection not to have size: <%s>, but actual size was <%s>.", expected, expected));
       }
     }
 

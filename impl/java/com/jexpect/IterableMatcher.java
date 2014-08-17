@@ -8,6 +8,22 @@ class IterableMatcher<T> {
     this.iterable = iterable;
   }
 
+  Integer getSizeOfIterable() {
+    return iterable != null ? size(null) : null;
+  }
+
+  Iterable<T> getIterable() {
+    return iterable;
+  }
+
+  boolean hasSize(int expected) {
+    return iterable != null && size(expected) == expected;
+  }
+
+  boolean hasNotSize(int expected) {
+    return !hasSize(expected);
+  }
+
   boolean isEmpty() {
     return iterable == null || !iterable.iterator().hasNext();
   }
@@ -29,5 +45,14 @@ class IterableMatcher<T> {
       }
     }
     return false;
+  }
+
+  private int size(Integer expected) {
+    int size = 0;
+    for (T t : iterable) {
+      size++;
+      if (expected != null && size > expected) break;
+    }
+    return size;
   }
 }
