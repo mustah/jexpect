@@ -24,7 +24,7 @@ public class ToBeNumberNotTest {
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void Expected_Not_To_Be_Same_To_Fail_Then_Exception_Should_Be_Thrown() throws Exception {
+  public void Expected_Not_To_Be_Same_But_They_Are_To_Fail_Then_Exception_Should_Be_Thrown() throws Exception {
     expect(9d).not().toBe(9d);
   }
 
